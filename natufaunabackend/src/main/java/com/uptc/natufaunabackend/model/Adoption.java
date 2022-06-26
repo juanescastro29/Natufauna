@@ -1,4 +1,7 @@
 package com.uptc.natufaunabackend.model;
+import com.sun.istack.NotNull;
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,7 +21,7 @@ public class Adoption {
     private Pet pet;
     @Column(name = "date")
     private Date date;
-    @Column(name = "last_update")
+    @Column(name = "last_update", nullable = false)
     private Date date_update;
     @Column(name = "status")
     private String status;
