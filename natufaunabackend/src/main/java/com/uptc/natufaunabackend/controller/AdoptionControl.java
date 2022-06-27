@@ -1,16 +1,12 @@
 package com.uptc.natufaunabackend.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.uptc.natufaunabackend.model.Adoption;
 import com.uptc.natufaunabackend.model.Pet;
 import com.uptc.natufaunabackend.model.User;
-import com.uptc.natufaunabackend.repository.PetRepository;
-import com.uptc.natufaunabackend.repository.UserRepository;
 import com.uptc.natufaunabackend.service.AdoptionService;
 import com.uptc.natufaunabackend.service.PetService;
 import com.uptc.natufaunabackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
