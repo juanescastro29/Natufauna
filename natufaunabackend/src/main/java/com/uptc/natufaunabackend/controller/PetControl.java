@@ -17,7 +17,7 @@ public class PetControl {
     @Autowired
     private PetService petService;
 
-    @PutMapping("/postPet")
+    @PostMapping("/postPet")
     public String addPet(@RequestBody Pet pet) {
         petService.savePet(pet);
         return "Pet saved";

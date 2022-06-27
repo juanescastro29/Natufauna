@@ -22,7 +22,7 @@ public class Pet {
     private String pet_characteristics;
     @Column(name = "pet_history", nullable = false)
     private String pet_history;
-    @Column(name = "status", nullable = false)
+    @Column(name = "status")
     private String status;
 
     @OneToOne(mappedBy = "pet")
@@ -30,4 +30,75 @@ public class Pet {
     @OneToOne(mappedBy = "pet")
     private Sponsorship sponsorship;
 
+    @PrePersist
+    public void prePersist() {
+        this.status = "In adoption";
+    }
+
+    public Pet() {
+    }
+
+    public int getPet_id() {
+        return pet_id;
+    }
+
+    public void setPet_id(int pet_id) {
+        this.pet_id = pet_id;
+    }
+
+    public String getPet_name() {
+        return pet_name;
+    }
+
+    public void setPet_name(String pet_name) {
+        this.pet_name = pet_name;
+    }
+
+    public String getPet_size() {
+        return pet_size;
+    }
+
+    public void setPet_size(String pet_size) {
+        this.pet_size = pet_size;
+    }
+
+    public String getPet_characteristics() {
+        return pet_characteristics;
+    }
+
+    public void setPet_characteristics(String pet_characteristics) {
+        this.pet_characteristics = pet_characteristics;
+    }
+
+    public String getPet_history() {
+        return pet_history;
+    }
+
+    public void setPet_history(String pet_history) {
+        this.pet_history = pet_history;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Adoption getAdoption() {
+        return adoption;
+    }
+
+    public void setAdoption(Adoption adoption) {
+        this.adoption = adoption;
+    }
+
+    public Sponsorship getSponsorship() {
+        return sponsorship;
+    }
+
+    public void setSponsorship(Sponsorship sponsorship) {
+        this.sponsorship = sponsorship;
+    }
 }
