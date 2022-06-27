@@ -33,6 +33,7 @@ public class AdoptionControl {
         Adoption adoption = new Adoption();
         adoption.setUser(user);
         adoption.setPet(pet);
+        pet.setAdoption_status("Adopted");
         adoptionService.saveAdoption(adoption);
         return "Adoption saved";
     }

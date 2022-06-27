@@ -9,5 +9,6 @@ public interface SponsorshipService {
     public void saveSponsorship(Sponsorship sponsorship);
     public List<Sponsorship> getSponsorships();
     public Sponsorship getSponsorship(Integer id);
+    public void deleteSponsorship(Integer id);
 
 }

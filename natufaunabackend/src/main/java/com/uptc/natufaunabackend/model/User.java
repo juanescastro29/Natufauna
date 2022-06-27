@@ -1,13 +1,9 @@
 package com.uptc.natufaunabackend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonValue;
-import org.springframework.lang.Nullable;
-
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "users")
@@ -28,17 +24,15 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user")
-<<<<<<< HEAD
     @JsonIgnore
     private List<Adoption> adoptions;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
-=======
-    private List<Adoption> adoptions;
+    private List<Sponsorship> sponsorships;
 
     @OneToMany(mappedBy = "user")
->>>>>>> 21d420b85e3df9ee0433bc584df2c74beb633d4c
+    @JsonIgnore
     private List<Donation> donations;
 
     public User() {
@@ -98,6 +92,14 @@ public class User {
 
     public void setAdoptions(List<Adoption> adoptions) {
         this.adoptions = adoptions;
+    }
+
+    public List<Sponsorship> getSponsorships() {
+        return sponsorships;
+    }
+
+    public void setSponsorships(List<Sponsorship> sponsorships) {
+        this.sponsorships = sponsorships;
     }
 
     public List<Donation> getDonations() {

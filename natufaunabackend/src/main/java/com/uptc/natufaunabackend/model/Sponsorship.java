@@ -16,4 +16,30 @@ public class Sponsorship {
     @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false)
     private Pet pet;
 
+    public Sponsorship() {
+    }
+
+    public int getSponsorship_id() {
+        return sponsorship_id;
+    }
+
+    public void setSponsorship_id(int sponsorship_id) {
+        this.sponsorship_id = sponsorship_id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
 }

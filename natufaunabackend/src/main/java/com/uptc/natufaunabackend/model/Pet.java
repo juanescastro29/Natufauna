@@ -23,8 +23,10 @@ public class Pet {
     private String pet_characteristics;
     @Column(name = "pet_history", nullable = false)
     private String pet_history;
-    @Column(name = "status")
-    private String status;
+    @Column(name = "adoption_status")
+    private String adoption_status;
+    @Column(name = "sponsorship_status")
+    private String sponsorship_status;
 
     @OneToOne(mappedBy = "pet")
     @JsonIgnore
@@ -35,7 +37,8 @@ public class Pet {
 
     @PrePersist
     public void prePersist() {
-        this.status = "In adoption";
+        this.adoption_status = "In adoption";
+        this.sponsorship_status = "Without sponsorship";
     }
 
     public Pet() {
@@ -81,11 +84,35 @@ public class Pet {
         this.pet_history = pet_history;
     }
 
-    public String getStatus() {
-        return status;
+    public String getAdoption_status() {
+        return adoption_status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAdoption_status(String adoption_status) {
+        this.adoption_status = adoption_status;
+    }
+
+    public String getSponsorship_status() {
+        return sponsorship_status;
+    }
+
+    public void setSponsorship_status(String sponsorship_status) {
+        this.sponsorship_status = sponsorship_status;
+    }
+
+    public Adoption getAdoption() {
+        return adoption;
+    }
+
+    public void setAdoption(Adoption adoption) {
+        this.adoption = adoption;
+    }
+
+    public Sponsorship getSponsorship() {
+        return sponsorship;
+    }
+
+    public void setSponsorship(Sponsorship sponsorship) {
+        this.sponsorship = sponsorship;
     }
 }

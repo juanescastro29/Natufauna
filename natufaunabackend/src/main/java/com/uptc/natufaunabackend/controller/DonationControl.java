@@ -41,15 +41,12 @@ public class DonationControl {
         return donationService.getDonations();
     }
 
-<<<<<<< HEAD
     @GetMapping("/showDonations/user/{user_id}")
     public List<Donation> getDonationsUser(@PathVariable int user_id) {
         User user = userService.getUser(user_id);
         return user.getDonations();
     }
 
-=======
->>>>>>> 21d420b85e3df9ee0433bc584df2c74beb633d4c
     @GetMapping("/showDonation/{donation_id}")
     public ResponseEntity<Donation> getDonation(@PathVariable int donation_id) {
         try {

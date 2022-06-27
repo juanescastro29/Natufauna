@@ -27,4 +27,9 @@ public class SponsorshipServiceImplementation implements SponsorshipService {
     public Sponsorship getSponsorship(Integer id) {
         return sponsorshipRepository.findById(id).get();
     }
+
+    @Override
+    public void deleteSponsorship(Integer id) {
+        sponsorshipRepository.deleteById(id);
+    }
 }
