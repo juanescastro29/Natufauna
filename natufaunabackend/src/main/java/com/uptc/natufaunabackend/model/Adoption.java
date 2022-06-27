@@ -1,5 +1,9 @@
 package com.uptc.natufaunabackend.model;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sun.istack.NotNull;
+import com.uptc.natufaunabackend.repository.UserRepository;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -13,12 +17,12 @@ public class Adoption {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "adoption_id")
     private int adoption_id;
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    private int user_id;
-    @OneToOne
-    @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false)
-    private int pet_id;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User user;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
     @Column(name = "date")
     private Date date;
     @Column(name = "last_update")
@@ -31,7 +35,8 @@ public class Adoption {
     @PrePersist
     public void prePersist() {
         this.date = new Date();
-        this.status = "On progress";
+        this.status = "In progress";
+        this.adoption_comments = "The adoption process is in progress";
     }
 
     @PreUpdate
@@ -50,20 +55,20 @@ public class Adoption {
         this.adoption_id = adoption_id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getPet_id() {
-        return pet_id;
+    public Pet getPet() {
+        return pet;
     }
 
-    public void setPet_id(int pet_id) {
-        this.pet_id = pet_id;
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 
     public Date getDate() {

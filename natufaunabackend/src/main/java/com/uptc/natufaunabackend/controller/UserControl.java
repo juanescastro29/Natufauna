@@ -17,7 +17,7 @@ public class UserControl {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/postUser")
+    @PostMapping("/newAdoption")
     public String addUser (@RequestBody User user) {
         userService.saveUser(user);
         return "User saved";
@@ -28,36 +28,24 @@ public class UserControl {
         return userService.getUsers();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable Integer id) {
+    @GetMapping("/{user_id}")
+    public ResponseEntity<User> getUser(@PathVariable Integer user_id) {
         try {
-            User user = userService.getUser(id);
+            User user = userService.getUser(user_id);
             return new ResponseEntity<User>(user, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@RequestBody User user, @PathVariable Integer id) {
+    @PutMapping("/{user_id}")
+    public ResponseEntity<String> updateUser(@RequestBody User user, @PathVariable Integer user_id) {
         try {
-            User userFound = userService.getUser(id);
+            User userFound = userService.getUser(user_id);
             userService.saveUser(user);
             return new ResponseEntity<String>("User update successfully", HttpStatus.OK);
         }catch (NoSuchElementException e) {
             return new ResponseEntity<String>("Not user found", HttpStatus.NOT_FOUND);
         }
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable Integer id) {
-        try {
-            User userDeleted = userService.getUser(id);
-            userService.deleteUser(id);
-            return new ResponseEntity<String>("User deleted whit id " + id,HttpStatus.OK);
-        }catch (NoSuchElementException e) {
-            return new ResponseEntity<String>("Not user found", HttpStatus.NOT_FOUND);
-        }
-
     }
 }

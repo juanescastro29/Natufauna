@@ -1,13 +1,22 @@
 package com.uptc.natufaunabackend.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.uptc.natufaunabackend.model.Adoption;
+import com.uptc.natufaunabackend.model.Pet;
+import com.uptc.natufaunabackend.model.User;
+import com.uptc.natufaunabackend.repository.PetRepository;
+import com.uptc.natufaunabackend.repository.UserRepository;
 import com.uptc.natufaunabackend.service.AdoptionService;
+import com.uptc.natufaunabackend.service.PetService;
+import com.uptc.natufaunabackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -16,19 +25,28 @@ public class AdoptionControl {
 
     @Autowired
     private AdoptionService adoptionService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private PetService petService;
 
-    @PostMapping("/postAdoption")
-    public String addAdoption(@RequestBody Adoption adoption) {
+    @PostMapping("/newAdoption")
+    public String addAdoption(@RequestBody Map<String, Integer> adoptionData) {
+        User user = userService.getUser(adoptionData.get("user_id"));
+        Pet pet = petService.getPet(adoptionData.get("pet_id"));
+        Adoption adoption = new Adoption();
+        adoption.setUser(user);
+        adoption.setPet(pet);
         adoptionService.saveAdoption(adoption);
         return "Adoption saved";
     }
 
-    @GetMapping("/getAdoptions")
+    @GetMapping("/showAdoptions")
     public List<Adoption> getAdoptions() {
         return adoptionService.getAdoptions();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/showAdoption/{id}")
     public ResponseEntity<Adoption> getAdoption(@PathVariable Integer id) {
         try {
             Adoption adoption = adoptionService.getAdoption(id);
@@ -38,12 +56,14 @@ public class AdoptionControl {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateAdoption(@RequestBody Adoption adoption, @PathVariable Integer id) {
+    @PutMapping("/updateAdoption/{id}")
+    public ResponseEntity<String> updateAdoption(@RequestBody Map<String, String> adoptionDataUpdate, @PathVariable Integer id) {
         try {
             Adoption adoptionFound = adoptionService.getAdoption(id);
-            adoptionService.saveAdoption(adoption);
-            return new ResponseEntity<String>("Adoption update sucessfully", HttpStatus.OK);
+            adoptionFound.setAdoption_comments(adoptionDataUpdate.get("adoption_comments"));
+            adoptionFound.setStatus(adoptionDataUpdate.get("status"));
+            adoptionService.saveAdoption(adoptionFound);
+            return new ResponseEntity<String>("Adoption update successfully", HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<String>("Adoption not update", HttpStatus.NOT_FOUND);
         }

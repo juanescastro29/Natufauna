@@ -25,9 +25,9 @@ public class Pet {
     @Column(name = "status")
     private String status;
 
-    @OneToOne(mappedBy = "pet_id")
+    @OneToOne(mappedBy = "pet")
     private Adoption adoption;
-    @OneToOne(mappedBy = "pet_id")
+    @OneToOne(mappedBy = "pet")
     private Sponsorship sponsorship;
 
     @PrePersist
@@ -84,21 +84,5 @@ public class Pet {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Adoption getAdoption() {
-        return adoption;
-    }
-
-    public void setAdoption(Adoption adoption) {
-        this.adoption = adoption;
-    }
-
-    public Sponsorship getSponsorship() {
-        return sponsorship;
-    }
-
-    public void setSponsorship(Sponsorship sponsorship) {
-        this.sponsorship = sponsorship;
     }
 }

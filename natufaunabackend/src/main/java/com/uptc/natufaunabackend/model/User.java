@@ -1,11 +1,12 @@
 package com.uptc.natufaunabackend.model;
 
-import com.sun.istack.NotNull;
-import org.springframework.lang.NonNull;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -18,19 +19,21 @@ public class User {
     private String user_first_name;
     @Column(name = "last_name", nullable = false)
     private String user_last_name;
-    @Column(name = "password", nullable = false)
-    private String password;
     @Column(name = "username", nullable = false)
     private String username;
+    @Column(name = "password", nullable = false)
+    private String password;
     @Column(name = "email", nullable = false)
     private String email;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private List<Adoption> adoptions;
+    private Set<Adoption> adoptions = new HashSet<>();
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private List<Donation> donations;
+    private Set<Donation> donations = new HashSet<>();
 
     public User() {
-
     }
 
     public int getUser_id() {
@@ -57,20 +60,20 @@ public class User {
         this.user_last_name = user_last_name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -81,21 +84,19 @@ public class User {
         this.email = email;
     }
 
-    @Nullable
-    public List<Adoption> getAdoptions() {
+    public Set<Adoption> getAdoptions() {
         return adoptions;
     }
 
-    public void setAdoptions(@Nullable List<Adoption> adoptions) {
+    public void setAdoptions(Set<Adoption> adoptions) {
         this.adoptions = adoptions;
     }
 
-    @Nullable
-    public List<Donation> getDonations() {
+    public Set<Donation> getDonations() {
         return donations;
     }
 
-    public void setDonations(@Nullable List<Donation> donations) {
+    public void setDonations(Set<Donation> donations) {
         this.donations = donations;
     }
 }

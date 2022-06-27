@@ -28,20 +28,20 @@ public class PetControl {
         return petService.getPets();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Pet> getPet(@PathVariable Integer id) {
+    @GetMapping("/{pet_id}")
+    public ResponseEntity<Pet> getPet(@PathVariable Integer pet_id) {
         try {
-            Pet pet = petService.getPet(id);
+            Pet pet = petService.getPet(pet_id);
             return new ResponseEntity<Pet>(pet, HttpStatus.OK);
         }catch (NoSuchElementException e) {
             return new ResponseEntity<Pet>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updatePet(@RequestBody Pet pet, @PathVariable Integer id) {
+    @PutMapping("/{pet_id}")
+    public ResponseEntity<String> updatePet(@RequestBody Pet pet, @PathVariable Integer pet_id) {
         try {
-            Pet petFound = petService.getPet(id);
+            Pet petFound = petService.getPet(pet_id);
             petService.savePet(pet);
             return new ResponseEntity<String>("Pet update sucessfully", HttpStatus.OK);
         } catch (NoSuchElementException e) {
