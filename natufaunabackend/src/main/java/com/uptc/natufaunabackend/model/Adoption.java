@@ -39,4 +39,62 @@ public class Adoption {
         this.date_update = new Date();
     }
 
+    public Adoption() {
+    }
+
+    public int getAdoption_id() {
+        return adoption_id;
+    }
+
+    public void setAdoption_id(int adoption_id) {
+        this.adoption_id = adoption_id;
+    }
+
+    public User getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(User user_id) {
+        this.user_id = user_id;
+    }
+
+    public Pet getPet_id() {
+        return pet_id;
+    }
+
+    public void setPet_id(Pet pet_id) {
+        this.pet_id = pet_id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date getDate_update() {
+        return date_update;
+    }
+
+    public void setDate_update(Date date_update) {
+        this.date_update = date_update;
+    }
+
+    public String getAdoption_comments() {
+        return adoption_comments;
+    }
+
+    public void setAdoption_comments(String adoption_comments) {
+        this.adoption_comments = adoption_comments;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
