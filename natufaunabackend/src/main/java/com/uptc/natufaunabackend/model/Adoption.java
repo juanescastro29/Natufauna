@@ -50,20 +50,20 @@ public class Adoption {
         this.adoption_id = adoption_id;
     }
 
-    public User getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(User user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Pet getPet_id() {
-        return pet_id;
+    public Pet getPet() {
+        return pet;
     }
 
-    public void setPet_id(Pet pet_id) {
-        this.pet_id = pet_id;
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 
     public Date getDate() {
