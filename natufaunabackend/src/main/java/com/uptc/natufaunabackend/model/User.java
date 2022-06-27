@@ -28,11 +28,17 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user")
+<<<<<<< HEAD
     @JsonIgnore
     private List<Adoption> adoptions;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
+=======
+    private List<Adoption> adoptions;
+
+    @OneToMany(mappedBy = "user")
+>>>>>>> 21d420b85e3df9ee0433bc584df2c74beb633d4c
     private List<Donation> donations;
 
     public User() {
