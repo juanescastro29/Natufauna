@@ -59,18 +59,11 @@ public class SponsorshipControl {
         }
     }
 
-    @DeleteMapping("/deleteSponsorship/user/{user_id}/sponsorship/{sponsorship_id}")
-    public ResponseEntity<String> deleteSponsorship(@PathVariable int user_id, @PathVariable int sponsorship_id) {
+    @DeleteMapping("/deleteSponsorship/{sponsorship_id}")
+    public ResponseEntity<String> deleteSponsorship(@PathVariable int sponsorship_id) {
         try {
-            User user = userService.getUser(user_id);
             Sponsorship sponsorship = sponsorshipService.getSponsorship(sponsorship_id);
-            for (int i = 0 ; i >= user.getSponsorships().size() ; i++) {
-                if (sponsorship_id == user.getSponsorships().get(i).getSponsorship_id()) {
-                    sponsorshipService.deleteSponsorship(sponsorship_id);
-                    user.getSponsorships().remove(i);
-                    i = user.getSponsorships().size();
-                }
-            }
+            sponsorshipService.deleteSponsorship(sponsorship_id);
             return new ResponseEntity<String>("Sponsorship deleted", HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<String>("No sponsorship found", HttpStatus.NOT_FOUND);
