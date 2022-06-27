@@ -45,7 +45,7 @@ public class PetControl {
             petService.savePet(pet);
             return new ResponseEntity<String>("Pet update sucessfully", HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<String>("Pet nor update", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<String>("Pet not update", HttpStatus.NOT_FOUND);
         }
     }
 }

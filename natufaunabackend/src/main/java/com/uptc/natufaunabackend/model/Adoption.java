@@ -23,6 +23,8 @@ public class Adoption {
     private Date date;
     @Column(name = "last_update", nullable = false)
     private Date date_update;
+    @Column(name = "comments", nullable = false)
+    private String adoption_comments;
     @Column(name = "status")
     private String status;
 
