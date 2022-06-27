@@ -15,15 +15,15 @@ public class Adoption {
     private int adoption_id;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    private User user;
+    private User user_id;
     @OneToOne
     @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false)
-    private Pet pet;
+    private Pet pet_id;
     @Column(name = "date")
     private Date date;
     @Column(name = "last_update")
     private Date date_update;
-    @Column(name = "comments", nullable = false)
+    @Column(name = "adoption_comments", nullable = false)
     private String adoption_comments;
     @Column(name = "status")
     private String status;
