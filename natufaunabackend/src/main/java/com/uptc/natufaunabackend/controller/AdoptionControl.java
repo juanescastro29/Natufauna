@@ -43,9 +43,9 @@ public class AdoptionControl {
     }
 
     @GetMapping("/showAdoption/{id}")
-    public ResponseEntity<Adoption> getAdoption(@PathVariable Integer id) {
+    public ResponseEntity<Adoption> getAdoption(@PathVariable Integer donation_id) {
         try {
-            Adoption adoption = adoptionService.getAdoption(id);
+            Adoption adoption = adoptionService.getAdoption(donation_id);
             return new ResponseEntity<Adoption>(adoption, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Adoption>(HttpStatus.NOT_FOUND);

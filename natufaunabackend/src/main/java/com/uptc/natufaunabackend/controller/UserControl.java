@@ -17,18 +17,18 @@ public class UserControl {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/newAdoption")
-    public String addUser (@RequestBody User user) {
+    @PostMapping("/newUser")
+    public String addUser(@RequestBody User user) {
         userService.saveUser(user);
         return "User saved";
     }
 
-    @GetMapping("/getUsers")
+    @GetMapping("/showUsers")
     public List<User> getUsers(){
         return userService.getUsers();
     }
 
-    @GetMapping("/{user_id}")
+    @GetMapping("/showUser/{user_id}")
     public ResponseEntity<User> getUser(@PathVariable Integer user_id) {
         try {
             User user = userService.getUser(user_id);
@@ -38,7 +38,7 @@ public class UserControl {
         }
     }
 
-    @PutMapping("/{user_id}")
+    @PutMapping("/updateUser/{user_id}")
     public ResponseEntity<String> updateUser(@RequestBody User user, @PathVariable Integer user_id) {
         try {
             User userFound = userService.getUser(user_id);
