@@ -11,9 +11,9 @@ public class Sponsorship {
     private int sponsorship_id;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    private int user_id;
     @OneToOne
     @JoinColumn(name = "pet_id", referencedColumnName = "pet_id")
-    private Pet pet;
+    private int pet_id;
 
 }

@@ -25,9 +25,9 @@ public class Pet {
     @Column(name = "status")
     private String status;
 
-    @OneToOne(mappedBy = "pet")
+    @OneToOne(mappedBy = "pet_id")
     private Adoption adoption;
-    @OneToOne(mappedBy = "pet")
+    @OneToOne(mappedBy = "pet_id")
     private Sponsorship sponsorship;
 
     @PrePersist

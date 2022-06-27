@@ -15,7 +15,7 @@ public class Donation {
     private int donation_id;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    private int user_id;
     @Column(name = "date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;

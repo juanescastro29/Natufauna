@@ -15,10 +15,10 @@ public class Adoption {
     private int adoption_id;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    private User user;
+    private int user_id;
     @OneToOne
     @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false)
-    private Pet pet;
+    private int pet_id;
     @Column(name = "date")
     private Date date;
     @Column(name = "last_update")
@@ -50,20 +50,20 @@ public class Adoption {
         this.adoption_id = adoption_id;
     }
 
-    public User getUser() {
-        return user;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public Pet getPet() {
-        return pet;
+    public int getPet_id() {
+        return pet_id;
     }
 
-    public void setPet(Pet pet) {
-        this.pet = pet;
+    public void setPet_id(int pet_id) {
+        this.pet_id = pet_id;
     }
 
     public Date getDate() {
