@@ -42,10 +42,16 @@ public class AdoptionControl {
         return adoptionService.getAdoptions();
     }
 
+    @GetMapping("/showAdoptions/user/{user_id}")
+    public List<Adoption> getAdoptionsUser(@PathVariable int user_id) {
+        User user = userService.getUser(user_id);
+        return user.getAdoptions();
+    }
+
     @GetMapping("/showAdoption/{id}")
-    public ResponseEntity<Adoption> getAdoption(@PathVariable Integer id) {
+    public ResponseEntity<Adoption> getAdoption(@PathVariable Integer donation_id) {
         try {
-            Adoption adoption = adoptionService.getAdoption(id);
+            Adoption adoption = adoptionService.getAdoption(donation_id);
             return new ResponseEntity<Adoption>(adoption, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Adoption>(HttpStatus.NOT_FOUND);

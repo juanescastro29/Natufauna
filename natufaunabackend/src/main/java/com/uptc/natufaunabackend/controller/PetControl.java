@@ -17,18 +17,18 @@ public class PetControl {
     @Autowired
     private PetService petService;
 
-    @PostMapping("/postPet")
+    @PostMapping("/newPet")
     public String addPet(@RequestBody Pet pet) {
         petService.savePet(pet);
         return "Pet saved";
     }
 
-    @GetMapping("/getPets")
+    @GetMapping("/showPets")
     public List<Pet> getPets() {
         return petService.getPets();
     }
 
-    @GetMapping("/{pet_id}")
+    @GetMapping("/showPet/{pet_id}")
     public ResponseEntity<Pet> getPet(@PathVariable Integer pet_id) {
         try {
             Pet pet = petService.getPet(pet_id);
@@ -38,7 +38,7 @@ public class PetControl {
         }
     }
 
-    @PutMapping("/{pet_id}")
+    @PutMapping("/updatePet/{pet_id}")
     public ResponseEntity<String> updatePet(@RequestBody Pet pet, @PathVariable Integer pet_id) {
         try {
             Pet petFound = petService.getPet(pet_id);

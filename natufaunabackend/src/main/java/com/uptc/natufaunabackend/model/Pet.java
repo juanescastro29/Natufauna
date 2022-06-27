@@ -1,5 +1,6 @@
 package com.uptc.natufaunabackend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import org.aspectj.bridge.IMessage;
 import org.springframework.lang.Nullable;
@@ -26,8 +27,10 @@ public class Pet {
     private String status;
 
     @OneToOne(mappedBy = "pet")
+    @JsonIgnore
     private Adoption adoption;
     @OneToOne(mappedBy = "pet")
+    @JsonIgnore
     private Sponsorship sponsorship;
 
     @PrePersist

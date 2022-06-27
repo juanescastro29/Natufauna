@@ -6,6 +6,7 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,12 +27,13 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "user")
-    private Set<Adoption> adoptions = new HashSet<>();
     @JsonIgnore
+    private List<Adoption> adoptions;
+
     @OneToMany(mappedBy = "user")
-    private Set<Donation> donations = new HashSet<>();
+    @JsonIgnore
+    private List<Donation> donations;
 
     public User() {
     }
@@ -84,19 +86,19 @@ public class User {
         this.email = email;
     }
 
-    public Set<Adoption> getAdoptions() {
+    public List<Adoption> getAdoptions() {
         return adoptions;
     }
 
-    public void setAdoptions(Set<Adoption> adoptions) {
+    public void setAdoptions(List<Adoption> adoptions) {
         this.adoptions = adoptions;
     }
 
-    public Set<Donation> getDonations() {
+    public List<Donation> getDonations() {
         return donations;
     }
 
-    public void setDonations(Set<Donation> donations) {
+    public void setDonations(List<Donation> donations) {
         this.donations = donations;
     }
 }

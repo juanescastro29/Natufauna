@@ -10,10 +10,10 @@ public class Sponsorship {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int sponsorship_id;
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
     @OneToOne
-    @JoinColumn(name = "pet_id", referencedColumnName = "pet_id")
+    @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false)
     private Pet pet;
 
 }

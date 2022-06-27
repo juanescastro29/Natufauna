@@ -18,10 +18,10 @@ public class Adoption {
     @Column(name = "adoption_id")
     private int adoption_id;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pet_id")
+    @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false)
     private Pet pet;
     @Column(name = "date")
     private Date date;
