@@ -1,9 +1,9 @@
 function navbar() {
   return (
-    
+    <div className="Nav">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">
-          NATUFAUNA
+          Natufauna
         </a>
         <button
           className="navbar-toggler"
@@ -16,7 +16,7 @@ function navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse " id="navbarNav">
+        <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
               <a className="nav-link" href="#">
@@ -33,11 +33,10 @@ function navbar() {
                 Donaciones
               </a>
             </li>
-            
           </ul>
         </div>
       </nav>
-   
+    </div>
   );
 }
 
