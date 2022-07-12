@@ -1,10 +1,12 @@
+import { NavLink } from 'react-router-dom'
+
 function navbar() {
   return (
     <div className="Nav">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
+        <NavLink className="navbar-brand" to='/'>
           Natufauna
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,19 +21,19 @@ function navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/adoption">
                 Adopcion <span class="sr-only"></span>
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/sponsorship">
                 Apadridamiento
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/donation">
                 Donaciones
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>

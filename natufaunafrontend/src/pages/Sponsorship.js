@@ -3,7 +3,7 @@ import React from 'react'
 const adopcion = () => {
   return (
     <div>
-        <h1>esta es la pag adopciones</h1>
+        Sponsorship page
     </div>
   )
 }
