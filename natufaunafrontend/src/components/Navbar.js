@@ -1,43 +1,39 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
+import Logo from "../assets/natufa.jpg";
+import './Navbar.css'
 
 function navbar() {
   return (
-    <div className="Nav">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <NavLink className="navbar-brand" to='/'>
-          Natufauna
-        </NavLink>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item active">
-              <NavLink className="nav-link" to="/adoption">
-                Adopcion <span class="sr-only"></span>
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/sponsorship">
-                Apadridamiento
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/donation">
-                Donaciones
-              </NavLink>
-            </li>
-          </ul>
+    <div className="container-fluid bg-dark">
+      <div className="row">
+        <div className="col text-start my-2">
+          <NavLink to="/">Natufauna</NavLink>
         </div>
-      </nav>
+        <div className="col text-center my-2">
+          <NavLink to="/adoption">
+            <button type="button" className="btn btn-primary btn-rounded">
+              Adopcion
+            </button>
+          </NavLink>
+        </div>
+        <div className="col text-center my-2">
+          <NavLink to="/sponsorship">
+            <button type="button" className="btn btn-primary btn-rounded">
+              Apadrinamiento
+            </button>
+          </NavLink>
+        </div>
+        <div className="col text-center my-2">
+          <NavLink to="/donation">
+            <button type="button" className="btn btn-primary btn-rounded">
+              Donacion
+            </button>
+          </NavLink>
+        </div>
+        <div className="col text-end my-2">
+          <NavLink to="/login">Login</NavLink>
+        </div>
+      </div>
     </div>
   );
 }

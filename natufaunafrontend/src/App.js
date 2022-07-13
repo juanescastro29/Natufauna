@@ -11,9 +11,7 @@ import Navbar from './components/Navbar'
 function App() {
   return (
     <BrowserRouter>
-      <div className="container-fluid">
-        <Navbar/>
-      </div>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/adoption" element={<Adoption />} />

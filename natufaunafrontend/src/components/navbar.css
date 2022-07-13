@@ -1,8 +1,6 @@
-.navbar {
-    background-color: red !important;
-    font-size: x-large;
-    
-  }
+.container-fluid {
+  height: 9vh;
+}
 
 
 
