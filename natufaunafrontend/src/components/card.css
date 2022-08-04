@@ -5,13 +5,13 @@
   
   .card-body {
     padding: 2rem 0 !important;
-    background-color: aqua;
+    background-color: white;
   }
   
   .card-text {
     padding: 0.3rem 1rem;
     font-size: 1rem;
-    background-color: yellow;
+    background-color: white;
   }
   
   .overflow {

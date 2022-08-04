@@ -12,7 +12,9 @@ import Footer from './components/Footer'
 function App() {
   return (
     <BrowserRouter>
-      <Navbar/>
+      <div className="border-bottom border-dark p-2">
+        <Navbar/>
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/adoption" element={<Adoption />} />
@@ -22,8 +24,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <div className="container-fluid">
-        This is the footer
+      <div className="border-top border-dark p-2">
+        <Footer />
       </div>
     </BrowserRouter>
   );
