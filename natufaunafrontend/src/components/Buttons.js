@@ -6,7 +6,7 @@ import Donation from "../assets/donation.jpg";
 
 function Buttons() {
   return (
-    <div className="container">
+    <div className="container p-3">
       <div className="row">
         <div className="col-md-4 text-center">
           <NavLink to="/adoption">
@@ -15,7 +15,7 @@ function Buttons() {
                 src={Adoption}
                 alt="adoption logo"
                 className="rounded rounded-circle bg-white border border-2 border-dark"
-                width="180"
+                width="160"
               />
             </button>
           </NavLink>
@@ -27,7 +27,7 @@ function Buttons() {
                 src={Sponsorship}
                 alt="sponsorship logo"
                 className="rounded rounded-circle bg-white border border-2 border-dark"
-                width="180"
+                width="160"
               />
             </button>
           </NavLink>
@@ -39,7 +39,7 @@ function Buttons() {
                 src={Donation}
                 alt="donation logo"
                 className="rounded rounded-circle bg-white border border-2 border-dark"
-                width="180"
+                width="160"
               />
             </button>
           </NavLink>
