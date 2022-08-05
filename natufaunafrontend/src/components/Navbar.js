@@ -3,8 +3,8 @@ import Logo from "../assets/natufa.jpg";
 
 function navbar() {
   return (
-    <div className="container vertical-center">
-      <div className="row">
+    <div className="container">
+      <div className="row align-items-center">
         <div className="col text-center my-2">
           <NavLink to="/">
             <img src={Logo} alt="Natufauna logo" width="80" />
