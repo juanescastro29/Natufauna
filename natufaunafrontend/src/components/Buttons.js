@@ -14,7 +14,7 @@ function Buttons() {
               <img
                 src={Adoption}
                 alt="adoption logo"
-                className="rounded rounded-circle bg-white border border-2 border-dark"
+                className="rounded rounded-circle bg-white border border-1 border-dark"
                 width="160"
               />
             </button>
@@ -26,7 +26,7 @@ function Buttons() {
               <img
                 src={Sponsorship}
                 alt="sponsorship logo"
-                className="rounded rounded-circle bg-white border border-2 border-dark"
+                className="rounded rounded-circle bg-white border border-1 border-dark"
                 width="160"
               />
             </button>
@@ -38,7 +38,7 @@ function Buttons() {
               <img
                 src={Donation}
                 alt="donation logo"
-                className="rounded rounded-circle bg-white border border-2 border-dark"
+                className="rounded rounded-circle bg-white border border-1 border-dark"
                 width="160"
               />
             </button>
