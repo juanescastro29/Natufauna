@@ -1,7 +1,9 @@
 import React from "react";
 import Information from "../components/Information";
 import Cards from '../components/Cards'
-import More from '../components/More'
+import image1 from "../assets/ben.png";
+import image2 from '../assets/cafe.png'
+import image3 from '../assets/sopa.png'
 
 const info = [
   {
@@ -10,14 +12,41 @@ const info = [
   },
 ];
 
+const adoptionPets = [
+  {
+    
+    id: 1,
+    title: "Fazt Web",
+    image: image1,
+    type: "adoption",
+  },
+  {
+    id: 2,
+    title: "Fazt Blog",
+    image: image2,
+    type: "adoption",
+  },
+  {
+    id: 3,
+    title: "Fazt Youtube",
+    image: image3,
+    type: "adoption",
+  },
+  {
+    id: 4,
+    title: "Fazt Youtube",
+    image: image3,
+    type: "adoption",
+  },
+]
+
 function Adoptions() {
   return (
     <div className="adoptions">
       {info.map(({ title, text }) => (
         <Information title={title} text={text} />
       ))}
-      <Cards/>
-      <More/>
+      <Cards data={adoptionPets} />
     </div>
   );
 }

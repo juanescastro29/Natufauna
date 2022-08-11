@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Card.css";
 
-function Card({ imageSource, title, text, url }) {
+function Card({ imageSource, title, text, type }) {
   return (
-    <div className="card text-center bg-dark animate__animated animate__fadeInUp">
+    <div className="card text-center bg-dark animate__animated animate__fadeInUp mb-5">
       <div className="overflow">
         <img src={imageSource} alt="a wallpaper" className="card-img-top" />
       </div>
@@ -15,6 +15,18 @@ function Card({ imageSource, title, text, url }) {
             ? text
             : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam deserunt fuga accusantium excepturi quia, voluptates obcaecati nam in voluptas perferendis velit harum dignissimos quasi ex? Tempore repellat quo doloribus magnam."}
         </p>
+        {type === "adoption" 
+          ? <button className="btn btn-primary" type="button">
+              Adopt
+            </button>
+          : ""
+        }
+        {type === "sponsor"
+          ? <button className="btn btn-primary" type="button">
+              Sponsor
+            </button>
+          : ""
+        }
       </div>
     </div>
   );
@@ -24,7 +36,7 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,
   url: PropTypes.string,
-  imageSource: PropTypes.string
+  imageSource: PropTypes.string,
 };
 
 export default Card;
