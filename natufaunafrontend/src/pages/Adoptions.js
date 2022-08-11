@@ -7,14 +7,13 @@ import image3 from '../assets/sopa.png'
 
 const info = [
   {
-    title: "Adoptions",
+    title: "Adopciones",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupttem odit blanditiis commodi maiores est rerum soluta accusantium non labore iusto possimus neque molestiae obcaecati eos, consequuntur modi enim, expedita impedit.",
   },
 ];
 
 const adoptionPets = [
-  {
-    
+  {  
     id: 1,
     title: "Fazt Web",
     image: image1,
