@@ -5,12 +5,12 @@ import PSE from "../assets/pse.png";
 
 function Donations() {
   return (
-    <div className="container p-3">
+    <div className="container p-4">
       <div className="pt-2">
         <h1>Donaciones</h1>
       </div>
       <div className="row text-center">
-        <div className="col-md-6 m">
+        <div className="col-md-6">
           <div className="container border border-2 p-2 border-dark">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
@@ -20,8 +20,8 @@ function Donations() {
             </p>
           </div>
         </div>
-        <div className="col-md-6 border border-2 border-dark">
-          <div className="row row-cols-1 p-3 text center">
+        <div className="col-md-6">
+          <div className="container border border-2 border-dark p-3">
             <div className="col mb-1">
               <h4>Tarjeta de credito</h4>
             </div>
