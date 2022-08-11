@@ -7,7 +7,7 @@ function Information({ title, text }) {
       <h1 className='text text-dark'>
         {title}
       </h1>
-      <p className='border border-2 border-dark'>
+      <p className='border border-2 border-dark bg-white'>
         {text}
       </p>
     </div>

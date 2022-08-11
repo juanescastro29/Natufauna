@@ -1,5 +1,5 @@
 .home {
   font-family: 'Oxygen', sans-serif;
   height: 100%;
-  background: white;
+  background-image: url("../assets/background.jpeg");
 }

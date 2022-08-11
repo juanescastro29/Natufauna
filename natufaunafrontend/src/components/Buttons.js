@@ -10,7 +10,7 @@ function Buttons() {
       <div className="row">
         <div className="col-md-4 text-center">
           <NavLink to="/adoption">
-            <button className="border-0 bg-white" type="button">
+            <button className="border-0 bg-transparent" type="button">
               <img
                 src={Adoption}
                 alt="adoption logo"
@@ -22,7 +22,7 @@ function Buttons() {
         </div>
         <div className="col-md-4 text-center">
           <NavLink to="/sponsorship">
-            <button className="border-0 bg-white" type="button">
+            <button className="border-0 bg-transparent" type="button">
               <img
                 src={Sponsorship}
                 alt="sponsorship logo"
@@ -34,7 +34,7 @@ function Buttons() {
         </div>
         <div className="col-md-4 text-center">
           <NavLink to="/donation">
-            <button className="border-0 bg-white" type="button">
+            <button className="border-0 bg-transparent" type="button">
               <img
                 src={Donation}
                 alt="donation logo"

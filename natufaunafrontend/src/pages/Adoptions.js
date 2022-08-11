@@ -4,6 +4,7 @@ import Cards from '../components/Cards'
 import image1 from "../assets/ben.png";
 import image2 from '../assets/cafe.png'
 import image3 from '../assets/sopa.png'
+import "./Home.css"
 
 const info = [
   {
@@ -41,7 +42,7 @@ const adoptionPets = [
 
 function Adoptions() {
   return (
-    <div className="adoptions">
+    <div className="home">
       {info.map(({ title, text }) => (
         <Information title={title} text={text} />
       ))}

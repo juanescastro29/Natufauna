@@ -11,7 +11,7 @@ function Footer() {
           </p>
         </div>
         <div className="col text-center">
-          <img src={Background} alt="footer background" width="500"/>
+          <img src={Background} alt="footer background" width="450"/>
         </div>
         <div className="col text-center">
           <a
