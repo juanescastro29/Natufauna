@@ -1,10 +1,10 @@
-import './Home.css'
 import Cards from '../components/Cards'
 import Video from '../components/Video'
 import Buttons from '../components/Buttons'
 import image1 from "../assets/ben.png";
 import image2 from '../assets/cafe.png'
 import image3 from '../assets/sopa.png'
+import './Styles.css'
 
 const histories = [
   {
@@ -31,7 +31,7 @@ const histories = [
 
 export default function Home() {
   return (
-    <div className="home">
+    <div className="background">
       <Video/>
       <Buttons/>
       <Cards data={histories} />

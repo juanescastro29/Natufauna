@@ -2,11 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Tarjeta from "../assets/tarjeta.png";
 import PSE from "../assets/pse.png";
-import "./Home.css";
+import "./Styles.css";
 
 function Donations() {
   return (
-    <div className="home">
+    <div className="background">
       <div className="container p-4">
         <div className="tittle">
           <h1>Donaciones</h1>

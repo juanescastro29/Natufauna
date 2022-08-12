@@ -1,8 +1,11 @@
 import React from 'react'
+import './Styles.css'
 
 function NotFound() {
   return (
-    <div>404 Not Found</div>
+    <div className='background'>
+      404 Not Found
+    </div>
   )
 }
 
