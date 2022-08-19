@@ -1,20 +1,12 @@
 import React from "react";
-import Information from "../components/Information";
-import Cards from '../components/Cards'
+import Cards from "../components/Cards";
 import image1 from "../assets/ben.png";
-import image2 from '../assets/cafe.png'
-import image3 from '../assets/sopa.png'
-import "./Styles.css"
-
-const info = [
-  {
-    title: "Apadrinamiento",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupttem odit blanditiis commodi maiores est rerum soluta accusantium non labore iusto possimus neque molestiae obcaecati eos, consequuntur modi enim, expedita impedit.",
-  },
-];
+import image2 from "../assets/cafe.png";
+import image3 from "../assets/sopa.png";
+import "./Styles.css";
 
 const adoptionPets = [
-  {  
+  {
     id: 1,
     title: "Fazt Web",
     image: image1,
@@ -38,14 +30,20 @@ const adoptionPets = [
     image: image3,
     type: "sponsor",
   },
-]
+];
 
 function Sponsorship() {
   return (
     <div className="background">
-      {info.map(({ title, text }) => (
-        <Information title={title} text={text} />
-      ))}
+      <div className="container p-4">
+        <h1 className="text text-dark">Apadrinamiento</h1>
+        <p className="border border-2 border-dark bg-white">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+          inventore animi fugiat quasi eum! Accusantium tenetur dolores atque
+          animi in, repudiandae autem quia exercitationem maiores facere omnis
+          numquam sed? Harum.
+        </p>
+      </div>
       <Cards data={adoptionPets} />
     </div>
   );

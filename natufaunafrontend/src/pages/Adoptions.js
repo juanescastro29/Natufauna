@@ -1,34 +1,30 @@
-import React, { useEffect, useState } from "react";
-import Information from "../components/Information";
+import { useState, useEffect } from "react";
+import Cards from "../components/Cards";
 import "./Styles.css";
-
-const info = [
-  {
-    title: "Adopciones",
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Volupttem odit blanditiis commodi maiores est rerum soluta accusantium non labore iusto possimus neque molestiae obcaecati eos, consequuntur modi enim, expedita impedit.",
-  },
-];
 
 function Adoptions() {
   const [adoptionPets, setAdoptionPets] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:8080/pet/showPets";
-    fetch(url, {
-      mode: 'no-cors',
-    })
-      .then((response) => response.json())
+    fetch("http://localhost:8080/pet/showPets")
+      .then((res) => res.json())
       .then((result) => {
         setAdoptionPets(result);
-        console.log(adoptionPets)
+        console.log(result);
       });
   }, []);
 
   return (
     <div className="background">
-      {info.map(({ title, text }) => (
-        <Information title={title} text={text} />
-      ))}
+      <div className="container p-4">
+        <h1 className="text text-dark">Adopciones</h1>
+        <p className="border border-2 border-dark bg-white">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+          inventore animi fugiat quasi eum! Accusantium tenetur dolores atque
+          animi in, repudiandae autem quia exercitationem maiores facere omnis
+          numquam sed? Harum.
+        </p>
+      </div>
     </div>
   );
 }

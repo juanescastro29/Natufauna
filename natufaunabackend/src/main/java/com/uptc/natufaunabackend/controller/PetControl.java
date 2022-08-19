@@ -12,6 +12,7 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/pet")
+@CrossOrigin
 public class PetControl {
 
     @Autowired
