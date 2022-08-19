@@ -1,10 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Information from "../components/Information";
-import Cards from '../components/Cards'
-import image1 from "../assets/ben.png";
-import image2 from '../assets/cafe.png'
-import image3 from '../assets/sopa.png'
-import "./Styles.css"
+import "./Styles.css";
 
 const info = [
   {
@@ -13,40 +9,26 @@ const info = [
   },
 ];
 
-const adoptionPets = [
-  {  
-    id: 1,
-    title: "Fazt Web",
-    image: image1,
-    type: "adoption",
-  },
-  {
-    id: 2,
-    title: "Fazt Blog",
-    image: image2,
-    type: "adoption",
-  },
-  {
-    id: 3,
-    title: "Fazt Youtube",
-    image: image3,
-    type: "adoption",
-  },
-  {
-    id: 4,
-    title: "Fazt Youtube",
-    image: image3,
-    type: "adoption",
-  },
-]
-
 function Adoptions() {
+  const [adoptionPets, setAdoptionPets] = useState([]);
+
+  useEffect(() => {
+    const url = "http://localhost:8080/pet/showPets";
+    fetch(url, {
+      mode: 'no-cors',
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        setAdoptionPets(result);
+        console.log(adoptionPets)
+      });
+  }, []);
+
   return (
     <div className="background">
       {info.map(({ title, text }) => (
         <Information title={title} text={text} />
       ))}
-      <Cards data={adoptionPets} />
     </div>
   );
 }

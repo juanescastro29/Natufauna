@@ -1,10 +1,4 @@
 package com.uptc.natufaunabackend.model;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.sun.istack.NotNull;
-import com.uptc.natufaunabackend.repository.UserRepository;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.Date;

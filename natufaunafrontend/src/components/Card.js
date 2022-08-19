@@ -17,13 +17,13 @@ function Card({ imageSource, title, text, type }) {
         </p>
         {type === "adoption" 
           ? <button className="btn btn-primary" type="button">
-              Adopt
+              Adoptar
             </button>
           : ""
         }
         {type === "sponsor"
           ? <button className="btn btn-primary" type="button">
-              Sponsor
+              Apadrinar
             </button>
           : ""
         }
