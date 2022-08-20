@@ -24,9 +24,9 @@ public class Pet {
     @Column(name = "pet_history", nullable = false)
     private String pet_history;
     @Column(name = "adoption_status")
-    private String adoption_status;
+    private Boolean adoption_status;
     @Column(name = "sponsorship_status")
-    private String sponsorship_status;
+    private Boolean sponsorship_status;
 
     @OneToOne(mappedBy = "pet")
     @JsonIgnore
@@ -37,8 +37,8 @@ public class Pet {
 
     @PrePersist
     public void prePersist() {
-        this.adoption_status = "In adoption";
-        this.sponsorship_status = "Without sponsorship";
+        this.adoption_status = true;
+        this.sponsorship_status = true;
     }
 
     public Pet() {
@@ -84,19 +84,19 @@ public class Pet {
         this.pet_history = pet_history;
     }
 
-    public String getAdoption_status() {
+    public Boolean getAdoption_status() {
         return adoption_status;
     }
 
-    public void setAdoption_status(String adoption_status) {
+    public void setAdoption_status(Boolean adoption_status) {
         this.adoption_status = adoption_status;
     }
 
-    public String getSponsorship_status() {
+    public Boolean getSponsorship_status() {
         return sponsorship_status;
     }
 
-    public void setSponsorship_status(String sponsorship_status) {
+    public void setSponsorship_status(Boolean sponsorship_status) {
         this.sponsorship_status = sponsorship_status;
     }
 

@@ -10,7 +10,6 @@ function Adoptions() {
       .then((res) => res.json())
       .then((result) => {
         setAdoptionPets(result);
-        console.log(result);
       });
   }, []);
 
@@ -25,6 +24,7 @@ function Adoptions() {
           numquam sed? Harum.
         </p>
       </div>
+      <Cards data={adoptionPets} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import Card from "./Card";
 
 function Cards({ data }) {
+  
   return (
     <div className="container p-4">
       <div className="row align-items-center">

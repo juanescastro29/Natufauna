@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/sponsorship")
 public class SponsorshipControl {
@@ -33,7 +34,7 @@ public class SponsorshipControl {
         Sponsorship sponsorship = new Sponsorship();
         sponsorship.setUser(user);
         sponsorship.setPet(pet);
-        pet.setSponsorship_status("Whit sponsorship");
+        pet.setSponsorship_status(false);
         sponsorshipService.saveSponsorship(sponsorship);
         return "Sponsorship saved";
     }

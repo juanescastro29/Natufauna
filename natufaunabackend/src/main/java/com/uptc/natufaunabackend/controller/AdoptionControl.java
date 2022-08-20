@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/adoption")
 public class AdoptionControl {
@@ -33,7 +34,7 @@ public class AdoptionControl {
         Adoption adoption = new Adoption();
         adoption.setUser(user);
         adoption.setPet(pet);
-        pet.setAdoption_status("Adopted");
+        pet.setAdoption_status(false);
         adoptionService.saveAdoption(adoption);
         return "Adoption saved";
     }
