@@ -31,7 +31,6 @@ const histories = [
 
 export default function Home() {
   return (
-    console.log('https://api.thedogapi.com/v1/images/search?size=full&mime_types=jpg&format=src&has_breeds=true&order=RANDOM&page=0&limit=1')
     <div className="background">
       <Video/>
       <Buttons/>

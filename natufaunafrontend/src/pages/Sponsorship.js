@@ -4,6 +4,7 @@ import image1 from "../assets/ben.png";
 import image2 from "../assets/cafe.png";
 import image3 from "../assets/sopa.png";
 import "./Styles.css";
+import Carousel from "../components/Carousel";
 
 const adoptionPets = [
   {
@@ -26,9 +27,10 @@ const adoptionPets = [
   },
   {
     id: 4,
-    title: "Fazt Youtube",
+    title: "brunis",
     image: image3,
     type: "sponsor",
+    text:"holi",
   },
 ];
 
@@ -37,7 +39,8 @@ function Sponsorship() {
     <div className="background">
       <div className="container p-4">
         <h1 className="text text-dark">Apadrinamiento</h1>
-        <p className="border border-2 border-dark bg-white">
+        <div><Carousel/></div>
+        <p className="/n border border-2 border-dark bg-white">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
           inventore animi fugiat quasi eum! Accusantium tenetur dolores atque
           animi in, repudiandae autem quia exercitationem maiores facere omnis
@@ -45,6 +48,7 @@ function Sponsorship() {
         </p>
       </div>
       <Cards data={adoptionPets} />
+      
     </div>
   );
 }
