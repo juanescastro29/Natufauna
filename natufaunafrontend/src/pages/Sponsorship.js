@@ -26,9 +26,10 @@ const adoptionPets = [
   },
   {
     id: 4,
-    title: "Fazt Youtube",
+    title: "Fazt ",
     image: image3,
     type: "sponsor",
+    text: "holi",
   },
 ];
 
@@ -48,4 +49,5 @@ function Sponsorship() {
     </div>
   );
 }
+
 export default Sponsorship;

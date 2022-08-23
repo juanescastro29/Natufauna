@@ -3,6 +3,7 @@ import Cards from "../components/Cards";
 import "./Styles.css";
 
 function Adoptions() {
+  
   const [adoptionPets, setAdoptionPets] = useState([]);
 
   useEffect(() => {
