@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 import "./Card.css";
 
-function Card({ imageSource, title, text, type }) {
+function Card({ pet_image, pet_name, type, text }) {
   
   return (
     <div className="card text-center bg-dark animate__animated animate__fadeInUp mb-5">
       <div className="overflow">
-        <img src={imageSource} alt="pet prifile" className="card-img-top" />
+        <img src={pet_image} alt="pet profile" className="card-img-top" />
       </div>
       <div className="card-body text-dark">
-        <h4 className="card-title">{title}</h4>
+        <h4 className="card-title">{pet_name}</h4>
         <p className="card-text text-secondary">
           {text
             ? text
@@ -33,10 +33,10 @@ function Card({ imageSource, title, text, type }) {
 }
 
 Card.propTypes = {
-  title: PropTypes.string.isRequired,
+  pet_name: PropTypes.string.isRequired,
   text: PropTypes.string,
-  url: PropTypes.string,
-  imageSource: PropTypes.string,
+  pet_image: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default Card;

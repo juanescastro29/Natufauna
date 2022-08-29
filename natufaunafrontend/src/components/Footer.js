@@ -13,7 +13,7 @@ function Footer() {
         <div className="col text-center">
           <img src={Background} alt="footer background" width="450"/>
         </div>
-        <div className="col text-center">
+        <div className="col text-end">
           <a
             className="btn btn-primary btn-floating m-1"
             href="https://www.facebook.com/FundacionNatufauna/"

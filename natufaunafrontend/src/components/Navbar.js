@@ -4,13 +4,13 @@ import Logo from "../assets/natufa.jpg";
 function navbar() {
   return (
     <div className="container">
-      <div className="row align-items-center">
-        <div className="col text-center my-2">
+      <div className="row align-items-center my-2">
+        <div className="col-md-2 text-center">
           <NavLink to="/">
             <img src={Logo} alt="Natufauna logo" width="80" />
           </NavLink>
         </div>
-        <div className="col text-center my-2">
+        <div className="col-md-2 text-center">
           <NavLink to="/">
             <button
               type="button"
@@ -20,7 +20,7 @@ function navbar() {
             </button>
           </NavLink>
         </div>
-        <div className="col text-center my-2">
+        <div className="col-md-2 text-center">
           <NavLink to="/adoption">
             <button
               type="button"
@@ -30,7 +30,7 @@ function navbar() {
             </button>
           </NavLink>
         </div>
-        <div className="col text-center my-2">
+        <div className="col-md-2 text-center">
           <NavLink to="/sponsorship">
             <button
               type="button"
@@ -40,7 +40,7 @@ function navbar() {
             </button>
           </NavLink>
         </div>
-        <div className="col text-center my-2">
+        <div className="col-md-2 text-center">
           <NavLink to="/donation">
             <button
               type="button"
@@ -50,7 +50,7 @@ function navbar() {
             </button>
           </NavLink>
         </div>
-        <div className="col text-center my-2">
+        <div className="col-md-2 text-center">
           <NavLink to="/login">
             <i
               className="bi bi-box-arrow-in-right"
