@@ -80,7 +80,7 @@ public class PetControl {
         return sponsorships;
     }
 
-    @GetMapping("/showPets/adoptions/{page}")
+    @GetMapping("/showPets/sponsorships/{page}")
     public  List<Pet> getSponsorships(@PathVariable Integer page) {
         List<Pet> pets = petService.getPets();
         List<Pet> sponsorships = new ArrayList<>();
@@ -121,7 +121,7 @@ public class PetControl {
         try {
             Pet petFound = petService.getPet(pet_id);
             petService.savePet(pet);
-            return new ResponseEntity<String>("Pet update sucessfully", HttpStatus.OK);
+            return new ResponseEntity<String>("Pet update successfully", HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<String>("Pet not update", HttpStatus.NOT_FOUND);
         }

@@ -1,5 +1,6 @@
 import React from "react";
 import Background from '../assets/footer.jpg'
+import "../pages/Styles.css";
 
 function Footer() {
   return (
@@ -15,7 +16,7 @@ function Footer() {
         </div>
         <div className="col text-end">
           <a
-            className="btn btn-primary btn-floating m-1"
+            className="btn btn-primary m-1"
             href="https://www.facebook.com/FundacionNatufauna/"
             target="_blank"
             rel="noreferrer"
@@ -23,7 +24,7 @@ function Footer() {
             <i className="bi bi-facebook"></i>
           </a>
           <a
-            className="btn btn-primary btn-floating m-1"
+            className="btn btn-primary m-1"
             href="https://www.youtube.com/channel/UCXUwIjcAEtEC8os7jG-5U8Q"
             target="_blank"
             rel="noreferrer"
@@ -31,7 +32,7 @@ function Footer() {
             <i className="bi bi-youtube"></i>
           </a>
           <a
-            className="btn btn-primary btn-floating m-1"
+            className="btn btn-primary m-1"
             href="https://www.instagram.com/fundacion_natufauna/"
             target="_blank"
             rel="noreferrer"

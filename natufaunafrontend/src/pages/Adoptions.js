@@ -12,7 +12,6 @@ function Adoptions() {
         `http://localhost:8080/pet/showPets/adoptions/${page}`
       );
       const data = await response.json();
-      console.log(data);
       const responseImages = await fetch(
         `https://api.thedogapi.com/v1/images/search?size=full&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=1&limit=${data.length}`
       );
@@ -31,7 +30,7 @@ function Adoptions() {
   return (
     <div className="background">
       <div className="container p-4">
-        <h1 className="text text-dark">Adopciones</h1>
+        <h2 className="text text-dark fw-bolder">Adopciones</h2>
         <p className="border border-2 border-dark bg-white">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
           inventore animi fugiat quasi eum! Accusantium tenetur dolores atque
@@ -40,72 +39,81 @@ function Adoptions() {
         </p>
       </div>
       {page >= 2 ? (
-        <div className="container">
-          {
-            adoptionPets.length === 0
-            ?<p className="text-center fs-2">No hay mas mascotas</p>
-            :<Cards data={adoptionPets} type={"adoption"} />
-          }
-        <div className="row">
-          <div className="col-md-4 text-end">
-            <button
-                  className="border-0 bg-transparent"
-                  type="button"
-                  onClick={() => setPage(page - 1)}
-                >
-                  <i class="bi bi-caret-left-square" style={{ fontSize: 35 }} ></i>
-            </button>
-          </div>
-          <div className="col-md-4 text-center pt-2">
-            <p className="fs-3">{page}</p>
-          </div>
-          <div className="col-md-4 text-start">
-            {
-              adoptionPets.length === 0
-              ?
+        <div>
+          {adoptionPets.length === 0 ? (
+            <p className="text-center fs-2 fw-bolder">No hay más mascotas disponibles.</p>
+          ) : (
+            <Cards data={adoptionPets} type={"adoption"} />
+          )}
+          <div className="row">
+            <div className="col-md-4 text-end">
               <button
-              className="border-0 bg-transparent"
-              type="button"
-              disabled
-            >
-              <i class="bi bi-caret-right-square" style={{ fontSize: 35 }}></i>
-            </button>
-              :<button
-              className="border-0 bg-transparent"
-              type="button"
-              onClick={() => setPage(page + 1)}
-            >
-              <i class="bi bi-caret-right-square" style={{ fontSize: 35 }}></i>
-            </button>
-            }
+                className="btn border-0 bg-transparent"
+                type="button"
+                onClick={() => setPage(page - 1)}
+              >
+                <i class="bi bi-caret-left-square" style={{ fontSize: 35 }}></i>
+              </button>
+            </div>
+            <div className="col-md-4 text-center pt-2">
+              <p className="fs-3">{page}</p>
+            </div>
+            <div className="col-md-4 text-start">
+              {adoptionPets.length === 0 ? (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  disabled
+                >
+                  <i
+                    class="bi bi-caret-right-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              ) : (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  onClick={() => setPage(page + 1)}
+                >
+                  <i
+                    class="bi bi-caret-right-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              )}
+            </div>
           </div>
         </div>
-      </div>
       ) : (
-        <div className="container">
-          <Cards data={adoptionPets} type={"adoption"} />  
-        <div className="row">
+        <div>
+          <Cards data={adoptionPets} type={"adoption"} />
+          <div className="row">
             <div className="col-md-4 text-end">
               {page === 1 ? (
                 <div>
                   <button
-                    className="border-0 bg-transparent"
+                    className="btn border-0 bg-transparent"
                     type="button"
                     disabled
                   >
-                    <i class="bi bi-caret-left-square" style={{ fontSize: 35 }} ></i>
+                    <i
+                      className="bi bi-caret-left-square"
+                      style={{ fontSize: 35 }}
+                    ></i>
                   </button>
                 </div>
               ) : (
-                
-                  <button
-                    className="border-0 bg-transparent"
-                    type="button"
-                    onClick={() => setPage(page - 1)}
-                  >
-                    <i class="bi bi-caret-left-square" style={{ fontSize: 35 }} ></i>
-                  </button>
-                
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  onClick={() => setPage(page - 1)}
+                >
+                  <i
+                    className="bi bi-caret-left-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
               )}
             </div>
             <div className="col-md-4 text-center pt-2">
@@ -113,11 +121,14 @@ function Adoptions() {
             </div>
             <div className="col-md-4 text-start">
               <button
-                className="border-0 bg-transparent"
+                className="btn border-0 bg-transparent"
                 type="button"
                 onClick={() => setPage(page + 1)}
               >
-                <i class="bi bi-caret-right-square" style={{ fontSize: 35 }}></i>
+                <i
+                  className="bi bi-caret-right-square"
+                  style={{ fontSize: 35 }}
+                ></i>
               </button>
             </div>
           </div>

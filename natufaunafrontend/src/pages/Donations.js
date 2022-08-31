@@ -8,9 +8,7 @@ function Donations() {
   return (
     <div className="background">
       <div className="container p-4">
-        <div className="tittle">
-          <h1>Donaciones</h1>
-        </div>
+        <h2 className="text text-dark fw-bolder">Donaciones</h2>
         <div className="row text-center">
           <div className="col-md-6">
             <div className="container border border-2 p-2 border-dark bg-white">
@@ -23,11 +21,11 @@ function Donations() {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="container border border-2 border-dark bg-white p-3">
-              <div className="col mb-1">
+            <div className="container border border-2 border-dark bg-white p-2">
+              <div className="row mb-1">
                 <h4>Tarjeta de credito</h4>
               </div>
-              <div className="col">
+              <div className="row">
                 <NavLink to="/adoption">
                   <button className="border-0 bg-transparent" type="button">
                     <img
@@ -39,10 +37,10 @@ function Donations() {
                   </button>
                 </NavLink>
               </div>
-              <div className="col mt-3">
+              <div className="row mt-3">
                 <h4>Pagos PSE</h4>
               </div>
-              <div className="col">
+              <div className="row">
                 <NavLink to="/adoption">
                   <button className="border-0 bg-transparent" type="button">
                     <img
