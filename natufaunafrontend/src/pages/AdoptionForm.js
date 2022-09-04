@@ -1,17 +1,21 @@
 import { useLocation } from "react-router-dom";
 import React from "react";
-import Form from '../components/Form'
+import Form from "../components/Form";
+import PetProfile from "../components/PetProfile";
 import "./Styles.css";
 
 function AdoptionForm() {
-
-  const location = useLocation()
-  const pet_image = location.state.pet_image
-  const pet_name = location.state.pet_name
+  const location = useLocation();
+  const pet_image = location.state.pet_image;
 
   return (
-    <div className="background">  
-      <Form pet_name={pet_name} pet_image={pet_image}/>
+    <div className="background">
+      <div className="container p-4">
+        <div className="row bg-light rounded border p-4 border-1 border-dark">
+          <PetProfile pet_image={pet_image} />
+          <Form pet_image={pet_image} />
+        </div>
+      </div>
     </div>
   );
 }

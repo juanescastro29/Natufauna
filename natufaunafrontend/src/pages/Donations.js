@@ -11,7 +11,7 @@ function Donations() {
         <h2 className="text text-dark fw-bolder">Donaciones</h2>
         <div className="row text-center">
           <div className="col-md-6">
-            <div className="container border border-2 p-2 border-dark bg-white">
+            <div className="container border border-1 p-3 border-dark bg-white">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
                 praesentium eos ipsum nisi eaque? Consectetur iusto amet ab
@@ -21,7 +21,7 @@ function Donations() {
             </div>
           </div>
           <div className="col-md-6">
-            <div className="container border border-2 border-dark bg-white p-2">
+            <div className="container border border-1 border-dark bg-white p-2">
               <div className="row mb-1">
                 <h4>Tarjeta de credito</h4>
               </div>

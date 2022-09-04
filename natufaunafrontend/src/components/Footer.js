@@ -1,6 +1,5 @@
 import React from "react";
 import Background from '../assets/footer.jpg'
-import "../pages/Styles.css";
 
 function Footer() {
   return (

@@ -23,6 +23,7 @@ const histories = [
 ];
 
 export default function Home() {
+
   const [newHistories, setNewHistories] = useState([]);
 
   useEffect(() => {

@@ -11,29 +11,34 @@ import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import AdoptionPetProvider from "./context/AdoptionPetContext";
 
 function App() {
   return (
     <UserProvider>
-      <BrowserRouter>
-        <div className="border-bottom border-dark p-2">
-          <Navbar />
-        </div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/adoption" element={<Adoption />} />
-          <Route path="/adoption/form" element={<AdoptionForm />} />
-          <Route path="/donation" element={<Donation />} />
-          <Route path="/sponsorship" element={<Sponsorship />} />
-          <Route path="/sponsorship/form" element={<SponsorshipForm />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <div className="border-top border-dark p-2">
-          <Footer />
-        </div>
-      </BrowserRouter>
+      <AdoptionPetProvider>
+        <BrowserRouter>
+          <ScrollToTop />
+          <div className="border-bottom border-dark p-1">
+            <Navbar />
+          </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/adoption" element={<Adoption />} />
+            <Route path="/adoption/form" element={<AdoptionForm />} />
+            <Route path="/donation" element={<Donation />} />
+            <Route path="/sponsorship" element={<Sponsorship />} />
+            <Route path="/sponsorship/form" element={<SponsorshipForm />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <div className="border-top border-dark p-1">
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </AdoptionPetProvider>
     </UserProvider>
   );
 }
