@@ -47,7 +47,7 @@ function Sponsorship() {
           numquam sed? Harum.
         </p>
       </div>
-      <Cards data={adoptionPets} />
+      <Cards data={adoptionPets} type="sponsor" />
       
     </div>
   );
