@@ -6,7 +6,7 @@ function Adoptions() {
   const [adoptionPets, setAdoptionPets] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/pet/showPets")
+    fetch("http://localhost:8081/pet/showPets")
       .then((res) => res.json())
       .then((result) => {
         setAdoptionPets(result);
