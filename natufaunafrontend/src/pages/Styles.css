@@ -1,5 +1,14 @@
 .background {
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Sarabun', sans-serif;
   height: 100%;
-  background-image: url("../assets/background.jpeg");
+  background-image: url("../assets/background.jpeg") ;
 }
+
+.img-pet-profile {
+  width: 100%;
+  height: 30vw;
+  object-fit: cover;
+}
+
+
+

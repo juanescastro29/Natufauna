@@ -104,8 +104,8 @@ function Sponsorship() {
           </font>
         </p>
       </div>
-
-      <Cards data={adoptionPets} />
+      <Cards data={adoptionPets} type="sponsor" />
+      
     </div>
   );
 }

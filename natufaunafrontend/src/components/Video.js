@@ -11,7 +11,7 @@ function Video() {
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
-        className="border border-2 border-dark"
+        className="border border-2 border-dark rounded"
       ></iframe>
     </div>
   );

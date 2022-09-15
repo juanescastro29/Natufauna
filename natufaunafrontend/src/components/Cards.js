@@ -1,13 +1,13 @@
 import Card from "./Card";
 
-function Cards({ data }) {
+function Cards({ data, type }) {
   
   return (
     <div className="container p-4">
       <div className="row align-items-center">
-        {data.map(({ title, image, id, type, text }) => (
-          <div className="col-md-4" key={id}>
-            <Card imageSource={image} title={title} type={type} text={text}/>
+        {data.map(({ pet_id, pet_image, pet_name, text }) => (
+          <div className="col-md-4" key={pet_id}>
+            <Card pet_id={pet_id} pet_image={pet_image} pet_name={pet_name} type={type} text={text}/>
           </div>
         ))}
       </div>

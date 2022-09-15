@@ -15,8 +15,10 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pet_id")
     private int pet_id;
-    @Column(name = "name", nullable = false)
+    @Column(name = "pet_name", nullable = false)
     private String pet_name;
+    @Transient
+    private String pet_image;
     @Column(name = "pet_size", nullable = false)
     private String pet_size;
     @Column(name = "pet_characteristics", nullable = false)
@@ -27,6 +29,7 @@ public class Pet {
     private Boolean adoption_status;
     @Column(name = "sponsorship_status")
     private Boolean sponsorship_status;
+
 
     @OneToOne(mappedBy = "pet")
     @JsonIgnore
@@ -39,6 +42,7 @@ public class Pet {
     public void prePersist() {
         this.adoption_status = true;
         this.sponsorship_status = true;
+        this.pet_image = "";
     }
 
     public Pet() {
@@ -114,5 +118,13 @@ public class Pet {
 
     public void setSponsorship(Sponsorship sponsorship) {
         this.sponsorship = sponsorship;
+    }
+
+    public String getPet_image() {
+        return pet_image;
+    }
+
+    public void setPet_image(String pet_image) {
+        this.pet_image = pet_image;
     }
 }
