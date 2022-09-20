@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import PropTypes from "prop-types";
-import "./Card.css";
+import "./card.css";
 import { AdoptionPetContext } from "../context/AdoptionPetContext";
 
 function Card({ pet_id, pet_image, pet_name, type, text }) {

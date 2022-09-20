@@ -12,7 +12,7 @@ function navbar() {
         </div>
         <div className="col-md-2 text-center">
           <NavLink to="/">
-            <button
+            <button style={{ background: "#F0B27A", fontFamily:"castellar", color:"black" }}
               type="button"
               className="btn btn-outline-primary btn-rounded"
             >
@@ -21,18 +21,19 @@ function navbar() {
           </NavLink>
         </div>
         <div className="col-md-2 text-center">
-          <NavLink to="/adoption">
-            <button
+          <NavLink to="/adoption" >
+            <button  style={{ background: "#F0B27A", fontFamily:"castellar", color:"black" }}
+            
               type="button"
               className="btn btn-outline-primary btn-rounded"
             >
-              Adopcion
+              Adopción
             </button>
           </NavLink>
         </div>
         <div className="col-md-2 text-center">
           <NavLink to="/sponsorship">
-            <button
+            <button style={{ background: "#F0B27A", fontFamily:"castellar", color:"black" }}
               type="button"
               className="btn btn-outline-primary  btn-rounded"
             >
@@ -42,7 +43,7 @@ function navbar() {
         </div>
         <div className="col-md-2 text-center">
           <NavLink to="/donation">
-            <button
+            <button   style={{ background: "#F0B27A", fontFamily:"castellar", color:"black" }}
               type="button"
               className="btn btn-outline-primary  btn-rounded"
             >
