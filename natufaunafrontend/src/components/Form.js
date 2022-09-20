@@ -17,10 +17,9 @@ function Form() {
     formState: { errors },
   } = useForm();
   const [adoptionResponse, setAdoptionResponse] = useState("");
-  const form = useRef()
+  const form = useRef();
 
-  async function newAdoption(event) {
-
+  async function newAdoption() {
     const user_id = user.id;
     const pet_id = pet.pet_id;
     const adoptionData = { user_id, pet_id };

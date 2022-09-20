@@ -48,7 +48,7 @@ function Adoptions() {
             <Cards data={adoptionPets} type={"adoption"} />
           )}
           <div className="row">
-            <div className="col-md-4 text-end">
+            <div className="col text-end">
               <button
                 className="btn border-0 bg-transparent"
                 type="button"
@@ -57,10 +57,10 @@ function Adoptions() {
                 <i className="bi bi-caret-left-square" style={{ fontSize: 35 }}></i>
               </button>
             </div>
-            <div className="col-md-4 text-center pt-2">
+            <div className="col text-center pt-2">
               <p className="fs-3">{page}</p>
             </div>
-            <div className="col-md-4 text-start">
+            <div className="col text-start">
               {adoptionPets.length < 6 ? (
                 <button
                   className="btn border-0 bg-transparent"
@@ -91,7 +91,7 @@ function Adoptions() {
         <div className="container">
           <Cards data={adoptionPets} type={"adoption"} />
           <div className="row">
-            <div className="col-md-4 text-end">
+            <div className="col text-end">
               {page === 1 ? (
                 <div>
                   <button
@@ -118,10 +118,10 @@ function Adoptions() {
                 </button>
               )}
             </div>
-            <div className="col-md-4 text-center pt-2">
+            <div className="col text-center pt-2">
               <p className="fs-3">{page}</p>
             </div>
-            <div className="col-md-4 text-start">
+            <div className="col text-start">
               <button
                 className="btn border-0 bg-transparent"
                 type="button"

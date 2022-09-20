@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/natufa.jpg";
+import './Navbar.css'
 
-function navbar() {
+function Navbar() {
+
   return (
     <div className="container">
       <div className="row align-items-center my-2">
@@ -63,4 +65,4 @@ function navbar() {
   );
 }
 
-export default navbar;
+export default Navbar;

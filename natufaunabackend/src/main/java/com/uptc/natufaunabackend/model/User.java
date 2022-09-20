@@ -16,12 +16,12 @@ public class User {
     private String user_first_name;
     @Column(name = "last_name", nullable = false)
     private String user_last_name;
-    @Column(name = "username", nullable = false)
-    private String username;
-    @Column(name = "password", nullable = false)
-    private String password;
     @Column(name = "email", nullable = false)
     private String email;
+    @Column(name = "password", nullable = false)
+    private String password;
+    @Column(name = "role", nullable = false)
+    private String role;
 
     @OneToMany(mappedBy = "user")
     @JsonIgnore
@@ -62,12 +62,12 @@ public class User {
         this.user_last_name = user_last_name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -78,12 +78,12 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getRole() {
+        return role;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public List<Adoption> getAdoptions() {

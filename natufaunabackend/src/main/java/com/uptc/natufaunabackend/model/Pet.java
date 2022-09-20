@@ -19,12 +19,14 @@ public class Pet {
     private String pet_name;
     @Transient
     private String pet_image;
-    @Column(name = "pet_size", nullable = false)
-    private String pet_size;
-    @Column(name = "pet_characteristics", nullable = false)
-    private String pet_characteristics;
     @Column(name = "pet_history", nullable = false)
     private String pet_history;
+    @Column(name = "pet_size", nullable = false)
+    private String pet_size;
+    @Column(name = "pet_color", nullable = false)
+    private String pet_color;
+    @Column(name = "pet_race", nullable = false)
+    private String pet_race;
     @Column(name = "adoption_status")
     private Boolean adoption_status;
     @Column(name = "sponsorship_status")
@@ -64,20 +66,12 @@ public class Pet {
         this.pet_name = pet_name;
     }
 
-    public String getPet_size() {
-        return pet_size;
+    public String getPet_image() {
+        return pet_image;
     }
 
-    public void setPet_size(String pet_size) {
-        this.pet_size = pet_size;
-    }
-
-    public String getPet_characteristics() {
-        return pet_characteristics;
-    }
-
-    public void setPet_characteristics(String pet_characteristics) {
-        this.pet_characteristics = pet_characteristics;
+    public void setPet_image(String pet_image) {
+        this.pet_image = pet_image;
     }
 
     public String getPet_history() {
@@ -86,6 +80,30 @@ public class Pet {
 
     public void setPet_history(String pet_history) {
         this.pet_history = pet_history;
+    }
+
+    public String getPet_size() {
+        return pet_size;
+    }
+
+    public void setPet_size(String pet_size) {
+        this.pet_size = pet_size;
+    }
+
+    public String getPet_color() {
+        return pet_color;
+    }
+
+    public void setPet_color(String pet_color) {
+        this.pet_color = pet_color;
+    }
+
+    public String getPet_race() {
+        return pet_race;
+    }
+
+    public void setPet_race(String pet_race) {
+        this.pet_race = pet_race;
     }
 
     public Boolean getAdoption_status() {
@@ -118,13 +136,5 @@ public class Pet {
 
     public void setSponsorship(Sponsorship sponsorship) {
         this.sponsorship = sponsorship;
-    }
-
-    public String getPet_image() {
-        return pet_image;
-    }
-
-    public void setPet_image(String pet_image) {
-        this.pet_image = pet_image;
     }
 }

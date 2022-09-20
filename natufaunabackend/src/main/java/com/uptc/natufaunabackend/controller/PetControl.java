@@ -120,7 +120,13 @@ public class PetControl {
     public ResponseEntity<String> updatePet(@RequestBody Pet pet, @PathVariable Integer pet_id) {
         try {
             Pet petFound = petService.getPet(pet_id);
-            petService.savePet(pet);
+            petFound.setPet_name(pet.getPet_name());
+            petFound.setPet_size(pet.getPet_size());
+            petFound.setPet_characteristics(pet.getPet_characteristics());
+            petFound.setPet_history(pet.getPet_history());
+            petFound.setAdoption_status(pet.getAdoption_status());
+            petFound.setSponsorship_status(pet.getSponsorship_status());
+            petService.savePet(petFound);
             return new ResponseEntity<String>("Pet update successfully", HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<String>("Pet not update", HttpStatus.NOT_FOUND);

@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 @CrossOrigin
@@ -20,8 +22,49 @@ public class UserControl {
 
     @PostMapping("/newUser")
     public String addUser(@RequestBody User user) {
+        user.setRole("USER");
         userService.saveUser(user);
         return "User saved";
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Object> loginUser(@RequestBody Map<String, String> credentials) {
+        String userEmail = credentials.get("userEmail");
+        String userPassword = credentials.get("userPassword");
+        User user = null;
+        Map<String, Object> response = new HashMap();
+        if (userService.getUsers().size() == 0) {
+            response.put("route", "/register");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+
+        for (int i = 0; i < userService.getUsers().size(); i++) {
+            if (userEmail.equals(userService.getUsers().get(i).getEmail())) {
+                user = userService.getUsers().get(i);
+            }
+        }
+        if (user != null) {
+            if (!userPassword.equals(user.getPassword())){
+                response.put("route", "");
+                response.put("user", null);
+                response.put("error", "Password incorrect");
+                return new ResponseEntity<>(response, HttpStatus.NOT_ACCEPTABLE);
+            }
+        }else {
+            response.put("route", "/register");
+            response.put("user", null);
+            response.put("error", "");
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+
+        if(user.getRole().equals("USER")) {
+            response.put("route", "/");
+        }else {
+            response.put("route", "/admin/");
+        }
+        response.put("user", user);
+        response.put("error", "");
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/showUsers")
