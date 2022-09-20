@@ -98,7 +98,7 @@ function Form() {
             Correo electronico:
           </label>
           <input
-            type="text"
+            type="email"
             className="form-control"
             name="inputEmail"
             id="inputEmail"

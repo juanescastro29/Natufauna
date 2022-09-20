@@ -1,23 +1,25 @@
-import React, { createContext, useMemo, useState } from 'react'
+import React from "react";
+import { createContext, useMemo, useState } from "react";
+import PropTypes from "prop-types";
 
-export const UserContext = createContext(); 
+export const UserContext = createContext();
 
 function UserProvider({ children }) {
-  
-  const initialData = {
-    id:1007379540,
-    name: 'Juan'
-  };
-  const [user, setUser] = useState(initialData);
-  const data = useMemo(() => ({ user, setUser }), [user, setUser]);
+  const [user, setUser] = useState(window.localStorage.getItem("user") ?? {});
 
-  return (
-    <UserContext.Provider value={ data }>
-      { children }
-    </UserContext.Provider>
-  )
+  const values = useMemo(
+    () => ({
+      user,
+      setUser
+    }),
+    [user]
+  );
 
+  return <UserContext.Provider value={values}>{children}</UserContext.Provider>;
 }
 
-export default UserProvider
+export default UserProvider;
 
+UserProvider.protoTypes = {
+  children: PropTypes.object,
+};

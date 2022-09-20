@@ -47,7 +47,7 @@ public class UserControl {
             if (!userPassword.equals(user.getPassword())){
                 response.put("route", "");
                 response.put("user", null);
-                response.put("error", "Password incorrect");
+                response.put("error", "Contraseña incorrecta");
                 return new ResponseEntity<>(response, HttpStatus.NOT_ACCEPTABLE);
             }
         }else {
@@ -64,7 +64,7 @@ public class UserControl {
         }
         response.put("user", user);
         response.put("error", "");
-        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/showUsers")
