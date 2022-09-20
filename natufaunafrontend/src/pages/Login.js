@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
-import Menu from './Home'
-import image3 from '../assets/sopa.png'
+import React, { useState } from "react";
+import Menu from "./Home";
+import image3 from "../assets/sopa.png";
+import logo from "../assets/natufa.jpg";
+import "./Login.css";
+import "./Login2.css";
 
 export const Login = () => {
-
   const [miLogin, setMiLogin] = useState("false");
   const [usu, setUsu] = useState("");
   const [pas, setPas] = useState("");
@@ -23,33 +25,84 @@ export const Login = () => {
         alert("error de usuario o contraseña");
         document.getElementById("txtusu").value = "";
         document.getElementById("txtpas").value = "";
-       
       }
     }
   }
 
-
   return (
-    
-    <div className="container" style={{background:"lightgreen", marginTop:20, padding:20}}>
-      
+    <div className="LoginBack">
+    <p> <br/> <br/>  </p>
+    <div className="container border border-2 border-dark
+       p-3 justify-content-center"
+      style={{
+        background: "white",
+        marginTop: 20,
+        padding: 200,
+        width: "600px",
+        marginLeft: "100px",
        
-    <form id="form_login">
-        <div>
-            <h1 style={{color:"darkgreen", textalign:"center"}}>LOGIN</h1>
-            <label htmlFor="txtusu"><strong>Username</strong></label>
-            <input type="text" id="txtusu"  style={{textAlign:"center"} } className="form-control" onChange={(e)=> setUsu(e.target.value)} required/>
-        </div>
-        <div>
-            <label htmlFor="txtpas"><strong>Password</strong></label>
-            <input type="password" id="txtpas" style={{textAlign:"center"}} className="form-control" onChange={(e)=> setPas(e.target.value)} required/>
-        </div><br/>
-        <input type="submit"  className="btn btn-primary" value="Login" onClick={iniciarSesion}/>
-        <img  src={image3}/>
-    </form>
-    {miLogin==="true" && <Menu/> }
-</div>
-  )
-}
+       
+      }}
+    >
+      <center>
+        
+        <form id="form_login">
+          <div className="LoginFront">
+            
+            <h1 style={{ color: "darkgreen", textalign: "center" , fontSize:60, fontFamily:"cooper black" }}>LOGIN</h1>
+            <br/>
+            <img  src={logo} width="80"/> 
+            <br/> <br/> 
+            <label style={{ fontFamily:"castellar" }} htmlFor="txtusu">
+              <strong>Username</strong>
+            </label>
+            <input
+              type="text"
+              id="txtusu"
+              style={{ textAlign: "center" }}
+              className="form-control"
+              onChange={(e) => setUsu(e.target.value)}
+              required
+            />
+          </div>
+          <div >
+            <label htmlFor="txtpas" style={{ fontFamily:"castellar" }}>
+              
+              <strong>Password</strong>
+            </label>
+            <input
+              type="password"
+              id="txtpas"
+              style={{ textAlign: "center" }}
+              className="form-control"
+              onChange={(e) => setPas(e.target.value)}
+              required
+            />
+          </div>
+          <br />
+          <input
+            type="submit"
+            className="btn btn-primary"
+            value="Login"
+            onClick={iniciarSesion}
+            style={{ background: "green" }}
+          />
+        </form>{" "}
+      </center>
+      <p> </p>
+      <center>
+      <img
+                src={image3}
+                alt="img"
+                className="rounded rounded-circle bg-white border border-1 border-dark"
+                width="160"
+              />{" "}
+      </center>
+      {miLogin === "true" && <Menu />}
+    </div><p> <br/>  </p>
+    </div>
+    
+  );
+};
 
 export default Login;

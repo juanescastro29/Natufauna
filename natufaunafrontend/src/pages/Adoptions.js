@@ -11,7 +11,7 @@ function Adoptions() {
     window.scrollTo(0, 0);
     async function fetchData() {
       const response = await fetch(
-        `http://localhost:8080/pet/showPets/adoptions/${page}`
+        `http://localhost:8081/pet/showPets/adoptions/${page}`
       );
       const data = await response.json();
       const responseImages = await fetch(
