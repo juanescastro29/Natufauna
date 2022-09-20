@@ -2,20 +2,15 @@
     font-family: 'Sarabun', sans-serif;
     height: 100%;
     background-image: url("../assets/two.jpg") ;
-   
-    
   }
+.LoginFront {
+    font-family: 'Sarabun', sans-serif;
+    height: 100%;
+    background-image: url("../assets/one.jpg") ;
+ }
   
-  .img-pet-profile {
-    width: 100%;
-    height: 30vw;
-    object-fit: cover;
-    
-   
-  }
-
   .container{
-    margin: 0 auto;
+    margin: auto !important;
   }
   
   

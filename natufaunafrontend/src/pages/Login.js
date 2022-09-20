@@ -3,7 +3,6 @@ import Menu from "./Home";
 import image3 from "../assets/sopa.png";
 import logo from "../assets/natufa.jpg";
 import "./Login.css";
-import "./Login2.css";
 
 export const Login = () => {
   const [miLogin, setMiLogin] = useState("false");
@@ -30,78 +29,80 @@ export const Login = () => {
   }
 
   return (
-    <div className="LoginBack">
-    <p> <br/> <br/>  </p>
-    <div className="container border border-2 border-dark
-       p-3 justify-content-center"
-      style={{
-        background: "white",
-        marginTop: 20,
-        padding: 200,
-        width: "600px",
-        marginLeft: "100px",
-       
-       
-      }}
-    >
-      <center>
-        
-        <form id="form_login">
-          <div className="LoginFront">
-            
-            <h1 style={{ color: "darkgreen", textalign: "center" , fontSize:60, fontFamily:"cooper black" }}>LOGIN</h1>
-            <br/>
-            <img  src={logo} width="80"/> 
-            <br/> <br/> 
-            <label style={{ fontFamily:"castellar" }} htmlFor="txtusu">
-              <strong>Username</strong>
-            </label>
+    <div className="LoginBack p-4">
+      <div
+        className="container border border-2 my-4 border-dark p-3"
+        style={{
+          background: "white",
+          marginTop: 20,
+          padding: 200,
+          width: "600px",
+          marginLeft: "100px",
+        }}
+      >
+        <center>
+          <form id="form_login">
+            <div className="LoginFront">
+              <h1
+                style={{
+                  color: "darkgreen",
+                  textalign: "center",
+                  fontSize: 60,
+                  fontFamily: "cooper black",
+                }}
+              >
+                LOGIN
+              </h1>
+              <br />
+              <img src={logo} width="80" />
+              <br /> <br />
+              <label style={{ fontFamily: "castellar" }} htmlFor="txtusu">
+                <strong>Username</strong>
+              </label>
+              <input
+                type="text"
+                id="txtusu"
+                style={{ textAlign: "center" }}
+                className="form-control"
+                onChange={(e) => setUsu(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="txtpas" style={{ fontFamily: "castellar" }}>
+                <strong>Password</strong>
+              </label>
+              <input
+                type="password"
+                id="txtpas"
+                style={{ textAlign: "center" }}
+                className="form-control"
+                onChange={(e) => setPas(e.target.value)}
+                required
+              />
+            </div>
+            <br />
             <input
-              type="text"
-              id="txtusu"
-              style={{ textAlign: "center" }}
-              className="form-control"
-              onChange={(e) => setUsu(e.target.value)}
-              required
+              type="submit"
+              className="btn btn-primary"
+              value="Login"
+              onClick={iniciarSesion}
+              style={{ background: "green" }}
             />
-          </div>
-          <div >
-            <label htmlFor="txtpas" style={{ fontFamily:"castellar" }}>
-              
-              <strong>Password</strong>
-            </label>
-            <input
-              type="password"
-              id="txtpas"
-              style={{ textAlign: "center" }}
-              className="form-control"
-              onChange={(e) => setPas(e.target.value)}
-              required
-            />
-          </div>
-          <br />
-          <input
-            type="submit"
-            className="btn btn-primary"
-            value="Login"
-            onClick={iniciarSesion}
-            style={{ background: "green" }}
-          />
-        </form>{" "}
-      </center>
-      <p> </p>
-      <center>
-      <img
-                src={image3}
-                alt="img"
-                className="rounded rounded-circle bg-white border border-1 border-dark"
-                width="160"
-              />{" "}
-      </center>
-      {miLogin === "true" && <Menu />}
-    </div><p> <br/>  </p>
+          </form>
+        </center>
+        <p> </p>
+        <center>
+          <img
+            src={image3}
+            alt="img"
+            className="rounded rounded-circle bg-white border border-1 border-dark"
+            width="160"
+          />{" "}
+        </center>
+        {miLogin === "true" && <Menu />}
+      </div>
     </div>
-    
   );
 };
 

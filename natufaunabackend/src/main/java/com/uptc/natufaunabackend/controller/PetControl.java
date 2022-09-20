@@ -122,7 +122,6 @@ public class PetControl {
             Pet petFound = petService.getPet(pet_id);
             petFound.setPet_name(pet.getPet_name());
             petFound.setPet_size(pet.getPet_size());
-            petFound.setPet_characteristics(pet.getPet_characteristics());
             petFound.setPet_history(pet.getPet_history());
             petFound.setAdoption_status(pet.getAdoption_status());
             petFound.setSponsorship_status(pet.getSponsorship_status());
