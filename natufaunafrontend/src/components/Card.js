@@ -5,7 +5,17 @@ import PropTypes from "prop-types";
 import "./Card.css";
 import { AdoptionPetContext } from "../context/AdoptionPetContext";
 
-function Card({ pet_id, pet_image, pet_name, type, text }) {
+function Card({
+  pet_id,
+  pet_image,
+  pet_name,
+  type,
+  pet_history,
+  pet_age,
+  pet_size,
+  pet_color,
+  pet_race,
+}) {
   const { session } = useContext(UserContext);
   const { setPet } = useContext(AdoptionPetContext);
 
@@ -21,18 +31,41 @@ function Card({ pet_id, pet_image, pet_name, type, text }) {
         <img src={pet_image} alt="pet profile" className="card-img-top" />
       </div>
       <div className="card-body text-dark">
-        <h4 className="card-title">{pet_name}</h4>
-        <p className="card-text text-secondary" style={{textAlign: "justify"}}>
-          {text
-            ? text
-            : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam deserunt fuga accusantium excepturi quia, voluptates obcaecati nam in voluptas perferendis velit harum dignissimos quasi ex? Tempore repellat quo doloribus magnam."}
+        <h4 className="card-title bg-transparent">{pet_name}</h4>
+        <p
+          className="card-text bg-transparent text-secondary m-0"
+          style={{ textAlign: "justify" }}
+        >
+          {pet_history && pet_history}
         </p>
+        {pet_age && pet_size && pet_color && pet_race && (
+          <>
+            <ul
+              className="card-text text-secondary bg-transparent m-0 ms-3 list-group list-group-flush"
+              style={{ textAlign: "justify" }}
+            >
+              Caracteristicas:
+              <li className="list-group-item text-secondary bg-transparent">
+                Edad: {pet_age}
+              </li>
+              <li className="list-group-item text-secondary bg-transparent">
+                Tamaño: {pet_size}
+              </li>
+              <li className="list-group-item text-secondary bg-transparent">
+                Color: {pet_color}
+              </li>
+              <li className="list-group-item text-secondary bg-transparent">
+                Raza: {pet_race}
+              </li>
+            </ul>
+          </>
+        )}
         {session ? (
           <>
             {type === "adoption" && (
               <NavLink to={"/adoption/form"} state={{ pet_image: pet_image }}>
                 <button
-                  className="btn btn-success"
+                  className="btn btn-success my-2"
                   type="button"
                   onClick={fetchPetData}
                 >
@@ -42,16 +75,25 @@ function Card({ pet_id, pet_image, pet_name, type, text }) {
             )}
             {type === "sponsor" && (
               <NavLink to={"/sponsorship/form"}>
-                <button className="btn btn-primary" type="button">
+                <button className="btn btn-primary my-2" type="button">
                   Apadrinar
                 </button>
               </NavLink>
             )}
           </>
         ) : (
-          <NavLink to={"/login"}>
-            <button className="btn btn-success">Iniciar sesión</button>
-          </NavLink>
+          <>
+            {type === "adoption" && (
+              <NavLink to={"/login"}>
+                <button className="btn btn-success my-2">Iniciar sesión</button>
+              </NavLink>
+            )}
+            {type === "sponsor" && (
+              <NavLink to={"/login"}>
+                <button className="btn btn-success my-2">Iniciar sesión</button>
+              </NavLink>
+            )}
+          </>
         )}
       </div>
     </div>

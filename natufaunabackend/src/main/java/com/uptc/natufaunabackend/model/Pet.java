@@ -21,6 +21,8 @@ public class Pet {
     private String pet_image;
     @Column(name = "pet_history", nullable = false)
     private String pet_history;
+    @Column(name = "pet_age", nullable = false)
+    private String pet_age;
     @Column(name = "pet_size", nullable = false)
     private String pet_size;
     @Column(name = "pet_color", nullable = false)
@@ -80,6 +82,14 @@ public class Pet {
 
     public void setPet_history(String pet_history) {
         this.pet_history = pet_history;
+    }
+
+    public String getPet_age() {
+        return pet_age;
+    }
+
+    public void setPet_age(String pet_age) {
+        this.pet_age = pet_age;
     }
 
     public String getPet_size() {

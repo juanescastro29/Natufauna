@@ -49,7 +49,7 @@ export const Login = () => {
   return (
     <div className="LoginBack p-4">
       <div
-        className="container border border-1 rounded my-4 border-dark p-3"
+        className="container border border-1 my-4 border-dark p-3"
         style={{
           background: "white",
           marginTop: 20,

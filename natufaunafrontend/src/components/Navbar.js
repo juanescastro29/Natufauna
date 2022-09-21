@@ -1,8 +1,8 @@
-import userEvent from "@testing-library/user-event";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/natufa.jpg";
 import { UserContext } from "../context/UserContext";
+import './Navbar.css'
 
 function Navbar() {
   const { session, setUser, setSession } = useContext(UserContext);
@@ -15,7 +15,7 @@ function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-expand-sm static-top p-0" style={{height: "70px"}}>
+    <nav className="navbar navbar-expand-lg static-top p-0">
       <div className="container">
         <NavLink to="/" className="navbar-brand">
           <img
@@ -37,19 +37,19 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div
-          className="collapse navbar-collapse text-center"
+          className="collapse navbar-collapse"
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ms-auto me-auto justify-content-center align-items-center">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link active" aria-current="page">
+              <NavLink to="/" className="nav-link fs-5" aria-current="page">
                 Inicio
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
                 to="/adoption"
-                className="nav-link active"
+                className="nav-link fs-5"
                 aria-current="page"
               >
                 Adopciones
@@ -58,7 +58,7 @@ function Navbar() {
             <li className="nav-item">
               <NavLink
                 to="/sponsorship"
-                className="nav-link active"
+                className="nav-link fs-5"
                 aria-current="page"
               >
                 Apadrinamiento
@@ -67,7 +67,7 @@ function Navbar() {
             <li className="nav-item">
               <NavLink
                 to="/donation"
-                className="nav-link active"
+                className="nav-link fs-5"
                 aria-current="page"
               >
                 Donaciones
