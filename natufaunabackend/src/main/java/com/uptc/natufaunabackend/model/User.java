@@ -10,13 +10,13 @@ import java.util.List;
 public class User {
 
     @Id
-    @Column(name = "user_id")
+    @Column(name = "user_id", unique = true)
     private int user_id;
     @Column(name = "first_name", nullable = false)
     private String user_first_name;
     @Column(name = "last_name", nullable = false)
     private String user_last_name;
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
     @Column(name = "password", nullable = false)
     private String password;

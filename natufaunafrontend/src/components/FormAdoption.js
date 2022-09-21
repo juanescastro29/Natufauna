@@ -20,11 +20,13 @@ function FormAdoption() {
   const form = useRef();
 
   async function newAdoption() {
-    const user_id = user.id;
+    console.log(user.email);
+    console.log(user.user_id);
+    const user_id = user.user_id;
     const pet_id = pet.pet_id;
     const adoptionData = { user_id, pet_id };
 
-    const response = await fetch("http://localhost:8080/adoption/newAdoption", {
+    const response = await fetch("http://localhost:8081/adoption/newAdoption", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

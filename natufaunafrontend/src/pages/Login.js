@@ -7,7 +7,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 export const Login = () => {
-  const { setUser } = useContext(UserContext);
+  const { setUser, setSession } = useContext(UserContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const {
@@ -34,6 +34,9 @@ export const Login = () => {
     if (data.route !== "/register") {
       if (data.error !== "Password incorrect") {
         setUser(data.user);
+        window.localStorage.setItem("user", JSON.stringify(data.user));
+        setSession(true)
+        window.localStorage.setItem("session", true);
         navigate(data.route);
       } else {
         setError(data.error);
@@ -67,7 +70,7 @@ export const Login = () => {
             >
               LOGIN
             </h1>
-            <img className="m-2" src={logo} width="80" />
+            <img className="m-2" src={logo} width="80" alt="logo"/>
             <br />
             <label
               className="m-2"
@@ -148,7 +151,7 @@ export const Login = () => {
         <div className="text-center">
           <img
             src={image3}
-            alt="img"
+            alt="login"
             className="rounded rounded-circle bg-white border border-1 border-dark m-1"
             width="160"
           />
