@@ -5,8 +5,8 @@ function Footer() {
   return (
     <div className="container-fluid">
       <footer
-        className="d-flex justify-content-between align-items-center py-2"
-        style={{ height: "120px" }}
+        className="d-flex justify-content-between align-items-center static-bottom"
+        style={{ height: "100px" }}
       >
         <div className=" nav col-md-4 justify-content-center">
           <p className="text-start">

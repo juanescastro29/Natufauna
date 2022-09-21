@@ -15,7 +15,7 @@ function Navbar() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg static-top">
+    <nav className="navbar navbar-expand-sm static-top p-0" style={{height: "70px"}}>
       <div className="container">
         <NavLink to="/" className="navbar-brand">
           <img
