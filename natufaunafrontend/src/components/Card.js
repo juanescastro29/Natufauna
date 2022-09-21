@@ -19,7 +19,7 @@ function Card({ pet_id, pet_image, pet_name, type, text }) {
   }, [user]);
 
   async function fetchPetData() {
-    const response = await fetch(`http://localhost:8080/pet/showPet/${pet_id}`);
+    const response = await fetch(`http://localhost:8081/pet/showPet/${pet_id}`);
     const petData = await response.json();
     setPet(petData);
   }
@@ -36,22 +36,30 @@ function Card({ pet_id, pet_image, pet_name, type, text }) {
             ? text
             : "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam deserunt fuga accusantium excepturi quia, voluptates obcaecati nam in voluptas perferendis velit harum dignissimos quasi ex? Tempore repellat quo doloribus magnam."}
         </p>
-        {type === "adoption" && (
-          <NavLink to={path} state={{ pet_image: pet_image }}>
-            <button
-              className="btn btn-primary"
-              type="button"
-              onClick={fetchPetData}
-            >
-              Adoptar
-            </button>
-          </NavLink>
-        )}
-        {type === "sponsor" && (
-          <NavLink to={"/sponsorship/form"}>
-            <button className="btn btn-primary" type="button">
-              Apadrinar
-            </button>
+        {user ? (
+          <>
+            {type === "adoption" && (
+              <NavLink to={path} state={{ pet_image: pet_image }}>
+                <button
+                  className="btn btn-success"
+                  type="button"
+                  onClick={fetchPetData}
+                >
+                  Adoptar
+                </button>
+              </NavLink>
+            )}
+            {type === "sponsor" && (
+              <NavLink to={"/sponsorship/form"}>
+                <button className="btn btn-primary" type="button">
+                  Apadrinar
+                </button>
+              </NavLink>
+            )}
+          </>
+        ) : (
+          <NavLink to={"/login"}>
+            <button className="btn btn-success">Iniciar sesión</button>
           </NavLink>
         )}
       </div>

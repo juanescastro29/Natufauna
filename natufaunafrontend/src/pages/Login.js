@@ -3,7 +3,7 @@ import image3 from "../assets/sopa.png";
 import logo from "../assets/natufa.jpg";
 import "./Login.css";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 export const Login = () => {
@@ -46,7 +46,7 @@ export const Login = () => {
   return (
     <div className="LoginBack p-4">
       <div
-        className="container border border-2 my-4 border-dark p-3"
+        className="container border border-1 rounded my-4 border-dark p-3"
         style={{
           background: "white",
           marginTop: 20,
@@ -78,7 +78,7 @@ export const Login = () => {
             </label>
             <input
               type="text"
-              className="form-control"
+              className="form-control border-dark"
               name="userEmail"
               id="userEmail"
               placeholder="example@email.com"
@@ -109,7 +109,7 @@ export const Login = () => {
             </label>
             <input
               type="password"
-              className="form-control"
+              className="form-control border-dark"
               name="userPassword"
               id="userPassword"
               autoComplete="nope"
@@ -122,13 +122,15 @@ export const Login = () => {
             )}
           </div>
           <div>
-            <button
-              type="button"
-              className="btn btn-success my-3"
-              style={{ background: "green" }}
-            >
-              Registrarse
-            </button>
+            <NavLink to={"/register"}>
+              <button
+                type="button"
+                className="btn btn-success my-3"
+                style={{ background: "green" }}
+              >
+                Registrarse
+              </button>
+            </NavLink>
             <button
               type="submit"
               className="btn btn-success my-3 ms-3"

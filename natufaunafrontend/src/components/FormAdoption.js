@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import Modal from "./Modal";
 
-function Form() {
+function FormAdoption() {
   const { user } = useContext(UserContext);
   const { pet } = useContext(AdoptionPetContext);
   const {
@@ -63,7 +63,7 @@ function Form() {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control border-dark"
             name="inputName"
             id="inputName"
             autoComplete="nope"
@@ -81,7 +81,7 @@ function Form() {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control border-dark"
             name="inputLastName"
             id="inputLastName"
             autoComplete="nope"
@@ -99,7 +99,7 @@ function Form() {
           </label>
           <input
             type="email"
-            className="form-control"
+            className="form-control border-dark"
             name="inputEmail"
             id="inputEmail"
             placeholder="example@email.com"
@@ -126,7 +126,7 @@ function Form() {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control border-dark"
             name="inputAddress"
             id="inputAddress"
             autoComplete="nope"
@@ -144,7 +144,7 @@ function Form() {
           </label>
           <input
             type="text"
-            className="form-control"
+            className="form-control border-dark"
             name="inputCity"
             id="inputCity"
             autoComplete="nope"
@@ -161,7 +161,7 @@ function Form() {
             Departamento:
           </label>
           <select
-            className="form-select"
+            className="form-select border-dark"
             name="inputState"
             id="inputState"
             autoComplete="nope"
@@ -205,7 +205,7 @@ function Form() {
         </div>
         <div className="col-md-6 text-center">
           <NavLink to={"/adoption"}>
-            <button type="button" className="btn btn-primary">
+            <button type="button" className="btn btn-success">
               Cancelar solicitud
             </button>
           </NavLink>
@@ -213,7 +213,7 @@ function Form() {
         <div className="col-md-6 text-center">
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-success"
             data-bs-toggle="modal"
             data-bs-target="#requestModal"
           >
@@ -226,10 +226,10 @@ function Form() {
   );
 }
 
-Form.prototype = {
+FormAdoption.prototype = {
   pet_name: PropTypes.string.isRequired,
   pet_id: PropTypes.number.isRequired,
   pet_image: PropTypes.string.isRequired,
 };
 
-export default Form;
+export default FormAdoption;

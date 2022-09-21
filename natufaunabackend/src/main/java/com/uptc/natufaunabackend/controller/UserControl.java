@@ -21,10 +21,20 @@ public class UserControl {
     private UserService userService;
 
     @PostMapping("/newUser")
-    public String addUser(@RequestBody User user) {
+    public ResponseEntity<Object> addUser(@RequestBody User user) {
+        Map<String, Object> response = new HashMap<>();
+        for (int i = 0; i < userService.getUsers().size(); i++) {
+            if (( (int) user.getUser_id() == userService.getUsers().get(i).getUser_id()) || (user.getEmail().equals(userService.getUsers().get(i).getEmail()))) {
+                response.put("route", "");
+                response.put("error", "Usuario ya registrado");
+                return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            }
+        }
         user.setRole("USER");
         userService.saveUser(user);
-        return "User saved";
+        response.put("route", "/");
+        response.put("error", "");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/login")

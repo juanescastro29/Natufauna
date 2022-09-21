@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export const UserContext = createContext();
 
 function UserProvider({ children }) {
-  const [user, setUser] = useState(window.localStorage.getItem("user") ?? {});
+  const [user, setUser] = useState(null);
 
   const values = useMemo(
     () => ({
