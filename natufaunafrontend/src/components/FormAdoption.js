@@ -20,8 +20,6 @@ function FormAdoption() {
   const form = useRef();
 
   async function newAdoption() {
-    console.log(user.email);
-    console.log(user.user_id);
     const user_id = user.user_id;
     const pet_id = pet.pet_id;
     const adoptionData = { user_id, pet_id };

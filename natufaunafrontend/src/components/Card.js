@@ -44,7 +44,7 @@ function Card({
               className="card-text text-secondary bg-transparent m-0 ms-3 list-group list-group-flush"
               style={{ textAlign: "justify" }}
             >
-              Caracteristicas:
+              Características:
               <li className="list-group-item text-secondary bg-transparent">
                 Edad: {pet_age}
               </li>

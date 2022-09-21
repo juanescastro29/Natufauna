@@ -9,37 +9,61 @@ import Donation from "./pages/Donations";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
+import AdminHome from "./pages/AdminHome";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import AdoptionPetProvider from "./context/AdoptionPetContext";
+import PrivateRouteAdmin from "./components/PrivateRouteAdmin";
+import PrivateRouteUser from "./components/PrivateRouteUser";
+import AdminProvider from "./context/AdminContext";
 
 function App() {
   return (
-    <UserProvider>
-      <AdoptionPetProvider>
-        <BrowserRouter>
-          <ScrollToTop />
-          <div className="border-bottom border-dark p-1">
+    <AdminProvider>
+      <UserProvider>
+        <AdoptionPetProvider>
+          <BrowserRouter>
+            <ScrollToTop />
             <Navbar />
-          </div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/adoption" element={<Adoption />} />
-            <Route path="/adoption/form" element={<AdoptionForm />} />
-            <Route path="/donation" element={<Donation />} />
-            <Route path="/sponsorship" element={<Sponsorship />} />
-            <Route path="/sponsorship/form" element={<SponsorshipForm />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <div className="border-top border-dark p-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/adoption" element={<Adoption />} />
+              <Route
+                path="/adoption/form"
+                element={
+                  <PrivateRouteUser>
+                    <AdoptionForm />
+                  </PrivateRouteUser>
+                }
+              />
+              <Route path="/donation" element={<Donation />} />
+              <Route path="/sponsorship" element={<Sponsorship />} />
+              <Route
+                path="/sponsorship/form"
+                element={
+                  <PrivateRouteUser>
+                    <SponsorshipForm />
+                  </PrivateRouteUser>
+                }
+              />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route
+                path="/admin/"
+                element={
+                  <PrivateRouteAdmin>
+                    <AdminHome />
+                  </PrivateRouteAdmin>
+                }
+              />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
             <Footer />
-          </div>
-        </BrowserRouter>
-      </AdoptionPetProvider>
-    </UserProvider>
+          </BrowserRouter>
+        </AdoptionPetProvider>
+      </UserProvider>
+    </AdminProvider>
   );
 }
 

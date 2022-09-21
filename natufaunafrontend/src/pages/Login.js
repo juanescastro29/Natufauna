@@ -4,10 +4,12 @@ import logo from "../assets/natufa.jpg";
 import "./Login.css";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from '../context/UserContext'
+import { AdminContext } from '../context/AdminContext'
 
 export const Login = () => {
   const { setUser, setSession } = useContext(UserContext);
+  const { setAdminSession } = useContext(AdminContext)
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const {
@@ -31,13 +33,20 @@ export const Login = () => {
     });
 
     const data = await response.json();
+    console.log(data.user);
     if (data.route !== "/register") {
-      if (data.error !== "Password incorrect") {
-        setUser(data.user);
-        window.localStorage.setItem("user", JSON.stringify(data.user));
-        setSession(true)
-        window.localStorage.setItem("session", true);
-        navigate(data.route);
+      if (data.error !== "Contraseña incorrecta") {
+        if (data.user.role !== "ADMIN") {
+          setUser(data.user);
+          window.localStorage.setItem("user", JSON.stringify(data.user));
+          setSession(true);
+          window.localStorage.setItem("session", true);
+          navigate(data.route);
+        } else {
+          setAdminSession(true);
+          window.localStorage.setItem("adminSession", true);
+          navigate(data.route);
+        }
       } else {
         setError(data.error);
       }
@@ -70,7 +79,7 @@ export const Login = () => {
             >
               LOGIN
             </h1>
-            <img className="m-2" src={logo} width="80" alt="logo"/>
+            <img className="m-2" src={logo} width="80" alt="logo" />
             <br />
             <label
               className="m-2"

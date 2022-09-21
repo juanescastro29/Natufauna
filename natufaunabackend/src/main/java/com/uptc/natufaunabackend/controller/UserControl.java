@@ -66,7 +66,6 @@ public class UserControl {
             response.put("error", "");
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
-
         if(user.getRole().equals("USER")) {
             response.put("route", "/");
         }else {

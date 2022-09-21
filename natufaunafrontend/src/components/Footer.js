@@ -3,7 +3,7 @@ import Background from "../assets/footer.jpg";
 
 function Footer() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid border-top border-dark p-1">
       <footer
         className="d-flex justify-content-between align-items-center static-bottom"
         style={{ height: "100px" }}

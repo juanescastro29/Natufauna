@@ -6,14 +6,16 @@ export const UserContext = createContext();
 
 function UserProvider({ children }) {
   const [user, setUser] = useState(window.localStorage.getItem("user" ?? null));
-  const [session, setSession] = useState(window.localStorage.getItem("session") ?? false)
+  const [session, setSession] = useState(
+    window.localStorage.getItem("session") ?? false
+  );
 
   const values = useMemo(
     () => ({
       user,
       session,
       setUser,
-      setSession
+      setSession,
     }),
     [user, session]
   );
