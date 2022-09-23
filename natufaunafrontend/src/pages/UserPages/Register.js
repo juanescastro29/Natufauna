@@ -1,6 +1,6 @@
 import React from "react";
-import FormRegister from "../components/FormRegister";
-import './Styles.css'
+import FormRegister from "../../components/FormRegister";
+import '../Styles.css'
 
 function Register() {
   return (

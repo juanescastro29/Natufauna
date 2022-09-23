@@ -26,7 +26,7 @@ function Navbar() {
       {adminSession ? (
         <nav className="navbar navbar-expand-lg static-top border-bottom border-dark p-1">
           <div className="container">
-            <NavLink to="/" className="navbar-brand">
+            <NavLink to="/admin/" className="navbar-brand">
               <img
                 className="me-1"
                 src={Logo}
@@ -52,34 +52,34 @@ function Navbar() {
               <ul className="navbar-nav ms-auto me-auto justify-content-center align-items-center">
                 <li className="nav-item">
                   <NavLink to="/admin/" className="nav-link fs-5" aria-current="page">
-                    ADMIN
+                    Inicio
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to="/adoption"
+                    to="/admin/adoption"
                     className="nav-link fs-5"
                     aria-current="page"
                   >
-                    Adopciones
+                    Gestion Adopciones
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to="/sponsorship"
+                    to="/admin/sponsorship"
                     className="nav-link fs-5"
                     aria-current="page"
                   >
-                    Apadrinamiento
+                    Gestion Apadrinamientos
                   </NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    to="/donation"
+                    to="/admin/donation"
                     className="nav-link fs-5"
                     aria-current="page"
                   >
-                    Donaciones
+                    Gestion Donaciones
                   </NavLink>
                 </li>
               </ul>
@@ -163,7 +163,7 @@ function Navbar() {
                     className="nav-link fs-5"
                     aria-current="page"
                   >
-                    Apadrinamiento
+                    Apadrinamientos
                   </NavLink>
                 </li>
                 <li className="nav-item">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import Cards from "../components/Cards";
-import "./Styles.css";
+import Cards from "../../components/Cards";
+import "../Styles.css";
 
 function Adoptions() {
   

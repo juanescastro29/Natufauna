@@ -1,12 +1,12 @@
 .LoginBack {
     font-family: 'Sarabun', sans-serif;
     height: 100%;
-    background-image: url("../assets/two.jpg") ;
+    background-image: url("../../assets/two.jpg") ;
   }
 .LoginFront {
     font-family: 'Sarabun', sans-serif;
     height: 100%;
-    background-image: url("../assets/one.jpg") ;
+    background-image: url("../../assets/one.jpg") ;
  }
   
   .container{

@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 import React from "react";
-import Form from "../components/FormAdoption";
-import PetProfile from "../components/PetProfile";
-import "./Styles.css";
+import Form from "../../components/FormAdoption";
+import PetProfile from "../../components/PetProfile";
+import "../Styles.css";
 
 function AdoptionForm() {
   const location = useLocation();

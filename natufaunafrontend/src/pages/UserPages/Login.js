@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import image3 from "../assets/sopa.png";
-import logo from "../assets/natufa.jpg";
+import image3 from "../../assets/sopa.png";
+import logo from "../../assets/natufa.jpg";
 import "./Login.css";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import { UserContext } from '../context/UserContext'
-import { AdminContext } from '../context/AdminContext'
+import { UserContext } from '../../context/UserContext'
+import { AdminContext } from '../../context/AdminContext'
 
 export const Login = () => {
   const { setUser, setSession } = useContext(UserContext);

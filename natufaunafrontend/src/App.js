@@ -1,15 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserProvider from "./context/UserContext";
-import Home from "./pages/Home";
-import Adoption from "./pages/Adoptions";
-import AdoptionForm from "./pages/AdoptionForm";
-import Sponsorship from "./pages/Sponsorship";
-import SponsorshipForm from "./pages/SponsorshipForm";
-import Donation from "./pages/Donations";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Home from "./pages/UserPages/Home";
+import Adoption from "./pages/UserPages/Adoptions";
+import AdoptionForm from "./pages/UserPages/AdoptionForm";
+import Sponsorship from "./pages/UserPages/Sponsorship";
+import SponsorshipForm from "./pages/UserPages/SponsorshipForm";
+import Donation from "./pages/UserPages/Donations";
+import Login from "./pages/UserPages/Login";
+import Register from "./pages/UserPages/Register";
 import NotFound from "./pages/NotFound";
-import AdminHome from "./pages/AdminHome";
+import AdminHome from "./pages/AdminPages/AdminHome";
+import AdminAdoption from "./pages/AdminPages/AdminAdoption";
+import AdminSponsorship from "./pages/AdminPages/AdminSponsorship";
+import AdminDonation from "./pages/AdminPages/AdminDonation";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -37,7 +40,6 @@ function App() {
                   </PrivateRouteUser>
                 }
               />
-              <Route path="/donation" element={<Donation />} />
               <Route path="/sponsorship" element={<Sponsorship />} />
               <Route
                 path="/sponsorship/form"
@@ -47,6 +49,7 @@ function App() {
                   </PrivateRouteUser>
                 }
               />
+              <Route path="/donation" element={<Donation />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route
@@ -54,6 +57,30 @@ function App() {
                 element={
                   <PrivateRouteAdmin>
                     <AdminHome />
+                  </PrivateRouteAdmin>
+                }
+              />
+              <Route
+                path="/admin/adoption"
+                element={
+                  <PrivateRouteAdmin>
+                    <AdminAdoption />
+                  </PrivateRouteAdmin>
+                }
+              />
+              <Route
+                path="/admin/sponsorship"
+                element={
+                  <PrivateRouteAdmin>
+                    <AdminSponsorship />
+                  </PrivateRouteAdmin>
+                }
+              />
+              <Route
+                path="/admin/donation"
+                element={
+                  <PrivateRouteAdmin>
+                    <AdminDonation />
                   </PrivateRouteAdmin>
                 }
               />

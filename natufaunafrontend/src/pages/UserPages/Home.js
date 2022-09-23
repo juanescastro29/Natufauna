@@ -1,7 +1,7 @@
-import Cards from "../components/Cards";
-import Video from "../components/Video";
-import Buttons from "../components/Buttons";
-import "./Styles.css";
+import Cards from "../../components/Cards";
+import Video from "../../components/Video";
+import Buttons from "../../components/Buttons";
+import "../Styles.css";
 import { useEffect, useState } from "react";
 
 const histories = [

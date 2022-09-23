@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Tarjeta from "../assets/tarjeta.png";
-import PSE from "../assets/pse.png";
-import "./Styles.css";
+import Tarjeta from "../../assets/tarjeta.png";
+import PSE from "../../assets/pse.png";
+import "../Styles.css";
 
 function Donations() {
   return (

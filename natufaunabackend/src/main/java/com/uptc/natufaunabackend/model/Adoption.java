@@ -1,5 +1,7 @@
 package com.uptc.natufaunabackend.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,6 +20,7 @@ public class Adoption {
     @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false, unique = true)
     private Pet pet;
     @Column(name = "date")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="GMT-5")
     private Date date;
     @Column(name = "last_update")
     private Date date_update;

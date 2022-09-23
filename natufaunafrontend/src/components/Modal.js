@@ -51,7 +51,7 @@ function Modal({ adoptionResponse }) {
                 <NavLink to={"/"}>
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-success"
                     data-bs-dismiss="modal"
                   >
                     Aceptar
@@ -60,7 +60,7 @@ function Modal({ adoptionResponse }) {
               ) : (
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn btn-success"
                   data-bs-dismiss="modal"
                 >
                   Aceptar

@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -42,6 +43,24 @@ public class AdoptionControl {
     @GetMapping("/showAdoptions")
     public List<Adoption> getAdoptions() {
         return adoptionService.getAdoptions();
+    }
+
+    @GetMapping("/showAdoptions/{page}")
+    public List<Adoption> getAdoptionsPage(@PathVariable Integer page) {
+        ArrayList<Adoption> adoptionsLimited = new ArrayList<>();
+        int elements = 0;
+        int startLimit = (6*page)-6;
+
+        for (int i = startLimit; i < adoptionService.getAdoptions().size(); i++) {
+            if (elements <= 5) {
+                adoptionsLimited.add(adoptionService.getAdoptions().get(i));
+                elements = elements + 1;
+            } else {
+                i = adoptionService.getAdoptions().size();
+            }
+        }
+
+        return adoptionsLimited;
     }
 
     @GetMapping("/showAdoptions/user/{user_id}")

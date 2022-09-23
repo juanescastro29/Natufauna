@@ -1,14 +1,13 @@
 import React from "react";
-import Cards from "../components/Cards";
-import ap1 from "../assets/ap1.jpg";
-import ap2 from "../assets/ap2.jpg";
-import ap3 from "../assets/ap3.jpg";
-import ap4 from "../assets/ap4.jpg";
-import ap5 from "../assets/ap5.jpg";
-import ap6 from "../assets/ap6.jpg";
-import "./Styles.css";
-import Slider from "../components/Slider";
-import Carousel from "../components/Carousel";
+import Cards from "../../components/Cards";
+import ap1 from "../../assets/ap1.jpg";
+import ap2 from "../../assets/ap2.jpg";
+import ap3 from "../../assets/ap3.jpg";
+import ap4 from "../../assets/ap4.jpg";
+import ap5 from "../../assets/ap5.jpg";
+import ap6 from "../../assets/ap6.jpg";
+import "../Styles.css";
+import Slider from "../../components/Slider";
 
 const adoptionPets = [
   {
