@@ -41,9 +41,17 @@ function Modal({ adoptionResponse }) {
                   Solicitud de adopción enviada correctamente
                 </p>
               ) : (
-                <p className="fs-4 fw-bolder text-center">
-                  Error en el envio de la solicitud de adopción
-                </p>
+                <>
+                  {adoptionResponse === "Exceeds the number of adoptions" ? (
+                    <p className="fs-4 fw-bolder text-center">
+                      No se permite tener más de dos procesos de adopción.
+                    </p>
+                  ) : (
+                    <p className="fs-4 fw-bolder text-center">
+                      Error en el envio de la solicitud de adopción
+                    </p>
+                  )}
+                </>
               )}
             </div>
             <div className="modal-footer justify-content-center">

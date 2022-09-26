@@ -33,6 +33,7 @@ function FormAdoption() {
     });
     const data = await response.text();
     setAdoptionResponse(data);
+    console.log(data);
 
     if (data === "Adoption saved") {
       emailjs
@@ -165,7 +166,7 @@ function FormAdoption() {
             name="inputState"
             id="inputState"
             autoComplete="nope"
-            {...register("inputState")}
+            {...register("inputState", {required: true})}
           >
             <option value="Amazonas">Amazonas</option>
             <option value="Antioquia">Antioquia</option>

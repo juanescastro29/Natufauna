@@ -20,9 +20,10 @@ public class Adoption {
     @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false, unique = true)
     private Pet pet;
     @Column(name = "date")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm", timezone="GMT-5")
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm", timezone="GMT-5")
     private Date date;
     @Column(name = "last_update")
+    @JsonFormat(pattern="dd-MM-yyyy HH:mm", timezone="GMT-5")
     private Date date_update;
     @Column(name = "adoption_comments", nullable = false)
     private String adoption_comments;
@@ -32,8 +33,8 @@ public class Adoption {
     @PrePersist
     public void prePersist() {
         this.date = new Date();
-        this.status = "In progress";
-        this.adoption_comments = "The adoption process is in progress";
+        this.status = "En progreso";
+        this.adoption_comments = "El proceso de adopcion esta en progreso";
     }
 
     @PreUpdate

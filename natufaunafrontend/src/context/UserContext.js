@@ -5,7 +5,9 @@ import PropTypes from "prop-types";
 export const UserContext = createContext();
 
 function UserProvider({ children }) {
-  const [user, setUser] = useState(window.localStorage.getItem("user" ?? null));
+  const [user, setUser] = useState(
+    JSON.parse(window.localStorage.getItem("user")) ?? null
+  );
   const [session, setSession] = useState(
     window.localStorage.getItem("session") ?? false
   );

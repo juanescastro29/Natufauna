@@ -10,6 +10,7 @@ import Login from "./pages/UserPages/Login";
 import Register from "./pages/UserPages/Register";
 import NotFound from "./pages/NotFound";
 import AdminHome from "./pages/AdminPages/AdminHome";
+import AdminPets from "./pages/AdminPages/AdminPets";
 import AdminAdoption from "./pages/AdminPages/AdminAdoption";
 import AdminSponsorship from "./pages/AdminPages/AdminSponsorship";
 import AdminDonation from "./pages/AdminPages/AdminDonation";
@@ -57,6 +58,14 @@ function App() {
                 element={
                   <PrivateRouteAdmin>
                     <AdminHome />
+                  </PrivateRouteAdmin>
+                }
+              />
+              <Route
+                path="/admin/pets"
+                element={
+                  <PrivateRouteAdmin>
+                    <AdminPets />
                   </PrivateRouteAdmin>
                 }
               />

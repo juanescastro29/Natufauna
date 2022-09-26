@@ -1,6 +1,7 @@
 package com.uptc.natufaunabackend.controller;
 
 import com.uptc.natufaunabackend.model.Donation;
+import com.uptc.natufaunabackend.model.Sponsorship;
 import com.uptc.natufaunabackend.model.User;
 import com.uptc.natufaunabackend.service.DonationService;
 import com.uptc.natufaunabackend.service.UserService;
@@ -9,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -46,6 +48,24 @@ public class DonationControl {
     public List<Donation> getDonationsUser(@PathVariable int user_id) {
         User user = userService.getUser(user_id);
         return user.getDonations();
+    }
+
+    @GetMapping("/showSponsorships/{page}")
+    public List<Donation> getAdoptionsPage(@PathVariable Integer page) {
+        ArrayList<Donation> donationsLimited = new ArrayList<>();
+        int elements = 0;
+        int startLimit = (6*page)-6;
+
+        for (int i = startLimit; i < donationService.getDonations().size(); i++) {
+            if (elements <= 5) {
+                donationsLimited.add(donationService.getDonations().get(i));
+                elements = elements + 1;
+            } else {
+                i = donationService.getDonations().size();
+            }
+        }
+
+        return donationsLimited;
     }
 
     @GetMapping("/showDonation/{donation_id}")

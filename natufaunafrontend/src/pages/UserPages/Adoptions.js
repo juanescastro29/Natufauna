@@ -3,7 +3,6 @@ import Cards from "../../components/Cards";
 import "../Styles.css";
 
 function Adoptions() {
-  
   const [adoptionPets, setAdoptionPets] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -43,7 +42,9 @@ function Adoptions() {
       {page >= 2 ? (
         <div className="container">
           {adoptionPets.length === 0 ? (
-            <p className="text-center fs-2 fw-bolder">No hay más mascotas disponibles.</p>
+            <p className="text-center fs-2 fw-bolder">
+              No hay mascotas disponibles para adopción.
+            </p>
           ) : (
             <Cards data={adoptionPets} type={"adoption"} />
           )}
@@ -54,7 +55,10 @@ function Adoptions() {
                 type="button"
                 onClick={() => setPage(page - 1)}
               >
-                <i className="bi bi-caret-left-square" style={{ fontSize: 35 }}></i>
+                <i
+                  className="bi bi-caret-left-square"
+                  style={{ fontSize: 35 }}
+                ></i>
               </button>
             </div>
             <div className="col text-center pt-2">
@@ -89,7 +93,13 @@ function Adoptions() {
         </div>
       ) : (
         <div className="container">
-          <Cards data={adoptionPets} type={"adoption"} />
+          {adoptionPets.length === 0 ? (
+            <p className="text-center fs-2 fw-bolder">
+              No hay mascotas disponibles para adopción.
+            </p>
+          ) : (
+            <Cards data={adoptionPets} type={"adoption"} />
+          )}
           <div className="row">
             <div className="col text-end">
               {page === 1 ? (
@@ -122,16 +132,29 @@ function Adoptions() {
               <p className="fs-3">{page}</p>
             </div>
             <div className="col text-start">
-              <button
-                className="btn border-0 bg-transparent"
-                type="button"
-                onClick={() => setPage(page + 1)}
-              >
-                <i
-                  className="bi bi-caret-right-square"
-                  style={{ fontSize: 35 }}
-                ></i>
-              </button>
+              {adoptionPets.length < 6 ? (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  disabled
+                >
+                  <i
+                    className="bi bi-caret-right-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              ) : (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  onClick={() => setPage(page + 1)}
+                >
+                  <i
+                    className="bi bi-caret-right-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              )}
             </div>
           </div>
         </div>

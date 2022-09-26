@@ -57,11 +57,20 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                   <NavLink
+                    to="/admin/pets"
+                    className="nav-link fs-5"
+                    aria-current="page"
+                  >
+                    Mascotas
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
                     to="/admin/adoption"
                     className="nav-link fs-5"
                     aria-current="page"
                   >
-                    Gestion Adopciones
+                    Adopciones
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -70,7 +79,7 @@ function Navbar() {
                     className="nav-link fs-5"
                     aria-current="page"
                   >
-                    Gestion Apadrinamientos
+                    Apadrinamientos
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -79,7 +88,7 @@ function Navbar() {
                     className="nav-link fs-5"
                     aria-current="page"
                   >
-                    Gestion Donaciones
+                    Donaciones
                   </NavLink>
                 </li>
               </ul>

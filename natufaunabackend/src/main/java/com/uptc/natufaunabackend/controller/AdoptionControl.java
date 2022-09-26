@@ -32,6 +32,15 @@ public class AdoptionControl {
     public String addAdoption(@RequestBody Map<String, Integer> adoptionData) {
         User user = userService.getUser(adoptionData.get("user_id"));
         Pet pet = petService.getPet(adoptionData.get("pet_id"));
+        int adoptions = 0;
+        for (int i = 0; i < user.getAdoptions().size(); i++) {
+            if (user.getAdoptions().get(i).getStatus().equals("En progreso")) {
+                adoptions = adoptions + 1;
+            }
+        }
+        if (adoptions == 2) {
+            return "Exceeds the number of adoptions";
+        }
         Adoption adoption = new Adoption();
         adoption.setUser(user);
         adoption.setPet(pet);
@@ -83,7 +92,9 @@ public class AdoptionControl {
     public ResponseEntity<String> updateAdoption(@RequestBody Map<String, String> adoptionDataUpdate, @PathVariable Integer id) {
         try {
             Adoption adoptionFound = adoptionService.getAdoption(id);
-            adoptionFound.setAdoption_comments(adoptionDataUpdate.get("adoption_comments"));
+            if (adoptionDataUpdate.get("adoption_comments") != ""){
+                adoptionFound.setAdoption_comments(adoptionDataUpdate.get("adoption_comments"));
+            }
             adoptionFound.setStatus(adoptionDataUpdate.get("status"));
             adoptionService.saveAdoption(adoptionFound);
             return new ResponseEntity<String>("Adoption update successfully", HttpStatus.OK);

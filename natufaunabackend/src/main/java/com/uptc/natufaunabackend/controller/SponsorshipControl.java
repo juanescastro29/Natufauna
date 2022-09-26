@@ -1,5 +1,6 @@
 package com.uptc.natufaunabackend.controller;
 
+import com.uptc.natufaunabackend.model.Adoption;
 import com.uptc.natufaunabackend.model.Pet;
 import com.uptc.natufaunabackend.model.Sponsorship;
 import com.uptc.natufaunabackend.model.User;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -48,6 +50,24 @@ public class SponsorshipControl {
     public List<Sponsorship> getUserSponsorship(@PathVariable int user_id) {
         User user = userService.getUser(user_id);
         return user.getSponsorships();
+    }
+
+    @GetMapping("/showSponsorships/{page}")
+    public List<Sponsorship> getAdoptionsPage(@PathVariable Integer page) {
+        ArrayList<Sponsorship> sponsorshipsLimited = new ArrayList<>();
+        int elements = 0;
+        int startLimit = (6*page)-6;
+
+        for (int i = startLimit; i < sponsorshipService.getSponsorships().size(); i++) {
+            if (elements <= 5) {
+                sponsorshipsLimited.add(sponsorshipService.getSponsorships().get(i));
+                elements = elements + 1;
+            } else {
+                i = sponsorshipService.getSponsorships().size();
+            }
+        }
+
+        return sponsorshipsLimited;
     }
 
     @GetMapping("/showSponsorship/{sponsorship_id}")
