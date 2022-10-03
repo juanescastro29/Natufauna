@@ -30,6 +30,11 @@ const Table = ({ data, dataType }) => {
             Lista de donaciones
           </caption>
         )}
+        {dataType === "pets" && (
+          <caption className="fs-3 fw-bolder" style={{ color: "green" }}>
+            Lista de mascotas
+          </caption>
+        )}
         <thead>
           {dataType === "adoptions" && (
             <>
@@ -55,8 +60,7 @@ const Table = ({ data, dataType }) => {
               </tr>
             </>
           )}
-          {
-            dataType === "donations" && 
+          {dataType === "donations" && (
             <>
               <tr>
                 <th scope="col">Id Donacion</th>
@@ -66,7 +70,23 @@ const Table = ({ data, dataType }) => {
                 <th scope="col">Estado</th>
               </tr>
             </>
-          }
+          )}
+          {dataType === "pets" && (
+            <>
+              <tr>
+                <th scope="col">Id mascota</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Estado de adopción</th>
+                <th scope="col">Estado de apadrinamiento</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Color</th>
+                <th scope="col">Historia</th>
+                <th scope="col">Raza</th>
+                <th scope="col">Tamaño</th>
+                <th scope="col"></th>
+              </tr>
+            </>
+          )}
         </thead>
         <tbody>
           {dataType === "adoptions" && (
@@ -90,19 +110,23 @@ const Table = ({ data, dataType }) => {
                     <td>{adoption_comments}</td>
                     <td>{status}</td>
                     <td align="center" className="">
-                      <button
-                        type="button"
-                        className="border-0 bg-transparent"
-                        data-bs-toggle="modal"
-                        data-bs-target="#editModal"
-                        onClick={() => seachAdoption(adoption_id)}
-                      >
-                        <i
-                          className="bi bi-pencil-square"
-                          style={{ fontSize: 20, color: "green" }}
-                        ></i>
-                      </button>
-                      <ModalForm data={adoptionEdit} />
+                      {status !== "Rechazado" && (
+                        <>
+                          <button
+                            type="button"
+                            className="border-0 bg-transparent"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editModal"
+                            onClick={() => seachAdoption(adoption_id)}
+                          >
+                            <i
+                              className="bi bi-pencil-square"
+                              style={{ fontSize: 20, color: "green" }}
+                            ></i>
+                          </button>
+                          <ModalForm data={adoptionEdit} />
+                        </>
+                      )}
                     </td>
                   </tr>
                 )
@@ -135,6 +159,51 @@ const Table = ({ data, dataType }) => {
                     <td>{status}</td>
                     <td>
                       <button type="button">show data</button>
+                    </td>
+                  </tr>
+                )
+              )}
+            </>
+          )}
+          {dataType === "pets" && (
+            <>
+              {data.map(
+                ({
+                  pet_id,
+                  pet_name,
+                  adoption_status,
+                  sponsorship_status,
+                  pet_age,
+                  pet_color,
+                  pet_history,
+                  pet_race,
+                  pet_size,
+                }) => (
+                  <tr key={pet_id}>
+                    <th scope="row">{pet_id}</th>
+                    <td>{pet_name}</td>
+                    {adoption_status ? (
+                      <td>En adopción</td>
+                    ) : (
+                      <td>No disponible para adoptar</td>
+                    )}
+                    {sponsorship_status ? (
+                      <td>En apadrinamiento</td>
+                    ) : (
+                      <td>No disponible para apadrinar</td>
+                    )}
+                    <td>{pet_age}</td>
+                    <td>{pet_color}</td>
+                    <td>{pet_history}</td>
+                    <td>{pet_race}</td>
+                    <td>{pet_size}</td>
+                    <td>
+                      <button type="button" className="border-0 bg-transparent">
+                        <i
+                          className="bi bi-pencil-square"
+                          style={{ fontSize: 20, color: "green" }}
+                        ></i>
+                      </button>
                     </td>
                   </tr>
                 )

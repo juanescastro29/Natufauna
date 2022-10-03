@@ -39,7 +39,7 @@ const FormRegister = () => {
   return (
     <form className="row" onSubmit={handleSubmit(registUser)}>
       <div className="col-12 p-2">
-        <h2 htmlFor="">Registrarse</h2>
+        <h2>Registrarse</h2>
       </div>
       <div className="col-6 p-2">
         <label htmlFor="userId" className="form-label fw-bolder">

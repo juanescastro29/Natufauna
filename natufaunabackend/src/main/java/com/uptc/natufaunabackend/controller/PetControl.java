@@ -19,15 +19,29 @@ public class PetControl {
     @Autowired
     private PetService petService;
 
-    @PostMapping("/newPet")
+    @PostMapping("/registerPet")
     public String addPet(@RequestBody Pet pet) {
         petService.savePet(pet);
         return "Pet saved";
     }
 
-    @GetMapping("/showPets")
-    public List<Pet> getPets() {
-        return petService.getPets();
+    @GetMapping("/showPets/{page}")
+    public List<Pet> getPets(@PathVariable Integer page) {
+        List<Pet> pets = petService.getPets();
+        List<Pet> petsLimited = new ArrayList<>();
+        int elements = 0;
+        int startLimit = (6*page)-6;
+
+        for (int i = startLimit; i < pets.size(); i++) {
+            if (elements <= 5) {
+                petsLimited.add(pets.get(i));
+                elements = elements + 1;
+            } else {
+                i = pets.size();
+            }
+        }
+
+        return petsLimited;
     }
 
     @GetMapping("/showPets/adoptions")

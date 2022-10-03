@@ -95,7 +95,14 @@ public class AdoptionControl {
             if (adoptionDataUpdate.get("adoption_comments") != ""){
                 adoptionFound.setAdoption_comments(adoptionDataUpdate.get("adoption_comments"));
             }
-            adoptionFound.setStatus(adoptionDataUpdate.get("status"));
+            if (adoptionDataUpdate.get("status").equals("Rechazado")) {
+                adoptionFound.setStatus(adoptionDataUpdate.get("status"));
+                Pet pet = adoptionFound.getPet();
+                pet.setAdoption_status(true);
+                petService.savePet(pet);
+            }else {
+                adoptionFound.setStatus(adoptionDataUpdate.get("status"));
+            }
             adoptionService.saveAdoption(adoptionFound);
             return new ResponseEntity<String>("Adoption update successfully", HttpStatus.OK);
         } catch (NoSuchElementException e) {
