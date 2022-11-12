@@ -44,11 +44,17 @@ const FormPet = () => {
           id="pet_name"
           {...register("pet_name", {
             required: true,
+            pattern: /[A-Za-z]/
           })}
         />
         {errors.pet_name?.type === "required" && (
           <div className="text-danger">
             <small>Este campo es requerido.</small>
+          </div>
+        )}
+        {errors.pet_name?.type === "pattern" && (
+          <div className="text-danger">
+            <small>No se permiten numeros ni caracteres especiales.</small>
           </div>
         )}
       </div>

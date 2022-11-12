@@ -63,22 +63,21 @@ function Sponsorship() {
             <b>APADRINAMIENTO </b>
           </center>
         </h1>
-        <p className="border border-1 border-dark p-3 m-4"
-        style={{ textAlign: "justify", background: "black" }}
+        <p
+          className="border border-1 border-dark p-3 m-4"
+          style={{ textAlign: "justify", background: "black" }}
         >
           <font face="New York Font" size="4" color="white">
-          <h3>
-
-          
-          El apadrinamiento es un apoyo mensual que puedes hacer de forma
-          económica o en especie (comida, guacales, medicamentos, etc) para
-          todos nuestros rescatados o para uno en particular. Esta donación
-          ayuda a la manutención de nuestros perritos en el transcurso de su
-          proceso de adopción por una familia que después de un meticuloso
-          proceso será el hogar de este amiguito por el resto de su vida. Si
-          quieres tener una mascota y no puedes, esta es tu oportunidad
-          ¡Anímate!
-          </h3>
+            <h3>
+              El apadrinamiento es un apoyo mensual que puedes hacer de forma
+              económica o en especie (comida, guacales, medicamentos, etc) para
+              todos nuestros rescatados o para uno en particular. Esta donación
+              ayuda a la manutención de nuestros perritos en el transcurso de su
+              proceso de adopción por una familia que después de un meticuloso
+              proceso será el hogar de este amiguito por el resto de su vida. Si
+              quieres tener una mascota y no puedes, esta es tu oportunidad
+              ¡Anímate!
+            </h3>
           </font>
         </p>
         <Slider />
@@ -86,32 +85,30 @@ function Sponsorship() {
           {" "}
           <br />
         </p>
-        <p className=""
-          
-        >
-          <font face="New York Font" size="4" color="gray" ><h3>
-            <center>
-            {" "}
-            Existen muchas personas que aman a los perros y a los gatos, pero
-            que no pueden tenerlos en casa.
-            <br />
-            Bien sea por falta de tiempo, de un espacio adecuado o por falta de
-            recursos, pero no tienen la posibilidad de darles un hogar ni de
-            disfrutar de su compañía.
-            <br />
-            <br /> Conscientes de que no todos pueden adoptar a una mascota, son
-            cada vez más las fundaciones que ofrecen el servicio de
-            apadrinamiento, que consiste en apoyar económicamente el
-            sostenimiento de un perro o un gato, o asistiendo a sitios donde los
-            puedan pasear o cuidar, ante la imposibilidad de tenerlos en su
-            casa.
-            </center>
+        <p className="">
+          <font face="New York Font" size="4" color="gray">
+            <h3>
+              <center>
+                {" "}
+                Existen muchas personas que aman a los perros y a los gatos,
+                pero que no pueden tenerlos en casa.
+                <br />
+                Bien sea por falta de tiempo, de un espacio adecuado o por falta
+                de recursos, pero no tienen la posibilidad de darles un hogar ni
+                de disfrutar de su compañía.
+                <br />
+                <br /> Conscientes de que no todos pueden adoptar a una mascota,
+                son cada vez más las fundaciones que ofrecen el servicio de
+                apadrinamiento, que consiste en apoyar económicamente el
+                sostenimiento de un perro o un gato, o asistiendo a sitios donde
+                los puedan pasear o cuidar, ante la imposibilidad de tenerlos en
+                su casa.
+              </center>
             </h3>
           </font>
         </p>
       </div>
       <Cards data={adoptionPets} type="sponsor" />
-      
     </div>
   );
 }

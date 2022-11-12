@@ -67,11 +67,16 @@ function Form({ type }) {
             name="inputName"
             id="inputName"
             autoComplete="nope"
-            {...register("inputName", { required: true })}
+            {...register("inputName", { required: true, pattern: /[A-Za-z]/ })}
           />
-          {errors.inputName && (
+          {errors.inputName?.type === "required" && (
             <div className="text-danger">
               <small>Este campo es obligatorio.</small>
+            </div>
+          )}
+          {errors.inputName?.type === "pattern" && (
+            <div className="text-danger">
+              <small>No se permiten números ni caracteres especiales.</small>
             </div>
           )}
         </div>
@@ -85,11 +90,19 @@ function Form({ type }) {
             name="inputLastName"
             id="inputLastName"
             autoComplete="nope"
-            {...register("inputLastName", { required: true })}
+            {...register("inputLastName", {
+              required: true,
+              pattern: /[A-Za-z]/,
+            })}
           />
-          {errors.inputLastName && (
+          {errors.inputLastName?.type === "required" && (
             <div className="text-danger">
               <small>Este campo es obligatorio.</small>
+            </div>
+          )}
+          {errors.inputLastName?.type === "pattern" && (
+            <div className="text-danger">
+              <small>No se permiten números ni caracteres especiales.</small>
             </div>
           )}
         </div>
@@ -120,7 +133,8 @@ function Form({ type }) {
             </div>
           )}
         </div>
-        <div className="col-md-6">
+        {type === "adoption" && (
+          <div className="col-md-6">
             <label htmlFor="inputState" className="form-label">
               Departamento:
             </label>
@@ -167,6 +181,7 @@ function Form({ type }) {
               <option value="Vichada">Vichada</option>
             </select>
           </div>
+        )}
         {type === "adoption" && (
           <div className="col-12">
             <label htmlFor="inputDireccion" className="form-label">
@@ -180,78 +195,93 @@ function Form({ type }) {
               autoComplete="nope"
               {...register("inputAddress", { required: true })}
             />
-            {errors.inputAddress && (
+            {errors.inputAddress?.type === "required" && (
               <div className="text-danger">
                 <small>Este campo es obligatorio.</small>
               </div>
             )}
           </div>
         )}
-        <div className="col-md-6">
-          <label htmlFor="inputCity" className="form-label">
-            Ciudad:
-          </label>
-          <input
-            type="text"
-            className="form-control border-dark"
-            name="inputCity"
-            id="inputCity"
-            autoComplete="nope"
-            {...register("inputCity", { required: true })}
-          />
-          {errors.inputCity && (
-            <div className="text-danger">
-              <small>Este campo es obligatorio.</small>
-            </div>
-          )}
-        </div>
-       
-        <div className="col-md-6">
-          <label htmlFor="inputCity" className="form-label">
-            Dirección:
-          </label>
-          <input
-            type="text"
-            className="form-control border-dark"
-            name="inputCity"
-            id="inputCity"
-            autoComplete="nope"
-            {...register("inputCity", { required: true })}
-          />
-          {errors.inputCity && (
-            <div className="text-danger">
-              <small>Este campo es obligatorio.</small>
-            </div>
-          )}
-        </div>
-        <div className="col-md-6">
-          <label htmlFor="inputCity" className="form-label">
+        {type === "adoption" && (
+          <div className="col-md-6">
+            <label htmlFor="inputCity" className="form-label">
+              Ciudad:
+            </label>
+            <input
+              type="text"
+              className="form-control border-dark"
+              name="inputCity"
+              id="inputCity"
+              autoComplete="nope"
+              {...register("inputCity", {
+                required: true,
+                pattern: /[a-zA-Z]/,
+              })}
+            />
+            {errors.inputCity?.type === "required" && (
+              <div className="text-danger">
+                <small>Este campo es obligatorio.</small>
+              </div>
+            )}
+            {errors.inputCity?.type === "pattern" && (
+              <div className="text-danger">
+                <small>No se permiten números ni caracteres especiales.</small>
+              </div>
+            )}
+          </div>
+        )}
+        {type === "adoption" && (
+          <div className="col-md-6">
+            <label htmlFor="inputAddress" className="form-label">
+              Dirección:
+            </label>
+            <input
+              type="text"
+              className="form-control border-dark"
+              name="inputAddress"
+              id="inputAddress"
+              autoComplete="nope"
+              {...register("inputAddress", { required: true })}
+            />
+            {errors.inputAddress?.type === "required" && (
+              <div className="text-danger">
+                <small>Este campo es obligatorio.</small>
+              </div>
+            )}
+          </div>
+        )}
+        <div className="col-md-12">
+          <label htmlFor="inputPhone" className="form-label">
             Telefono:
           </label>
           <input
             type="text"
             className="form-control border-dark"
-            name="inputCity"
-            id="inputCity"
+            name="inputPhone"
+            id="inputPhone"
             autoComplete="nope"
-            {...register("inputCity", { required: true })}
+            {...register("inputPhone", { required: true, pattern: /[a-zA-Z]/ })}
           />
-          {errors.inputCity && (
+          {errors.inputPhone?.type === "required" && (
             <div className="text-danger">
               <small>Este campo es obligatorio.</small>
             </div>
           )}
+          {errors.inputPhone?.type === "pattern" && (
+            <div className="text-danger">
+              <small>No se permiten números ni caracteres especiales.</small>
+            </div>
+          )}
         </div>
-          
-        
-        <div className="col-md-6 text-center">
+
+        <div className="col-md-7 text-center">
           <NavLink to={"/adoption"}>
             <button type="button" className="btn btn-success">
               Cancelar solicitud
             </button>
           </NavLink>
         </div>
-        <div className="col-md-6 text-center">
+        <div className="col-md-4 text-center">
           <button
             type="submit"
             className="btn btn-success"
@@ -266,8 +296,6 @@ function Form({ type }) {
     </div>
   );
 }
-
-
 
 Form.prototype = {
   pet_name: PropTypes.string.isRequired,

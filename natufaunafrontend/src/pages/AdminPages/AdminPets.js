@@ -26,7 +26,7 @@ const AdminPets = () => {
             {pets.length === 0 ? (
               <>
                 <Table data={pets} dataType={"pets"} />
-                <p className="text-center fs-3 fw-bolder">No hay adopciones.</p>
+                <p className="text-center fs-3 fw-bolder">No hay mascotas.</p>
               </>
             ) : (
               <Table data={pets} dataType={"pets"} />

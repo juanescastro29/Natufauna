@@ -82,7 +82,7 @@ function Card({
                 <button
                   className="btn btn-success my-2"
                   type="button"
-                  onClick={fetchPetData}
+                  onClick={() => fetchPetData()}
                 >
                   Apadrinar
                 </button>
