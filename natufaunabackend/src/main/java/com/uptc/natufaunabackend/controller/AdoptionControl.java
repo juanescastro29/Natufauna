@@ -58,7 +58,10 @@ public class AdoptionControl {
     public List<Adoption> getAdoptionsPage(@PathVariable Integer page) {
         ArrayList<Adoption> adoptionsLimited = new ArrayList<>();
         int elements = 0;
-        int startLimit = (6*page)-6;
+        int startLimit = 0;
+        if (page > 0) {
+            startLimit = (6*page)-6;
+        }
 
         for (int i = startLimit; i < adoptionService.getAdoptions().size(); i++) {
             if (elements <= 5) {
