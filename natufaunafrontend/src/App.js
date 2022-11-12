@@ -43,7 +43,7 @@ function App() {
               />
               <Route path="/sponsorship" element={<Sponsorship />} />
               <Route
-                path="/sponsorship/form"
+                path="/sponsorship/sponsorform"
                 element={
                   <PrivateRouteUser>
                     <SponsorshipForm />

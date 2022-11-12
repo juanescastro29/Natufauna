@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import React from "react";
-import Form from "../../components/FormAdoption";
+import Form from "../../components/Form";
 import PetProfile from "../../components/PetProfile";
 import "../Styles.css";
 
@@ -13,7 +13,7 @@ function AdoptionForm() {
       <div className="container p-4">
         <div className="row justify-content-center align-items-center bg-light rounded border p-4 border-1 border-dark">
           <PetProfile pet_image={pet_image} />
-          <Form pet_image={pet_image} />
+          <Form tpye={"adoption"}/>
         </div>
       </div>
     </div>

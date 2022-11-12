@@ -23,6 +23,7 @@ function Adoptions() {
         }
       }
       setAdoptionPets(data);
+      console.log(data);
     }
 
     fetchData();
@@ -31,12 +32,22 @@ function Adoptions() {
   return (
     <div className="background">
       <div className="container p-4">
-        <h2 className="text text-dark">Adopciones</h2>
-        <p className="border border-1 border-dark bg-white p-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-          inventore animi fugiat quasi eum! Accusantium tenetur dolores atque
-          animi in, repudiandae autem quia exercitationem maiores facere omnis
-          numquam sed? Harum.
+      <h1 className="text text-dark">
+          {" "}
+          <center>
+            <b>ADOPCIONES </b>
+          </center>
+        </h1>
+        <p className="border border-1 border-dark bg-white p-3"><h3>
+          <center> 
+          <font face="New York Font">
+          En la mayoría de los casos, adoptar significa darle una segunda oportunidad a un animal que ha 
+          sufrido un proceso de abandono, y en ocasiones maltrato. Acogerlo en tu casa de por vida y darle
+          la estabilidad, los cuidados y el cariño que necesita va a ayudarlo a que recupere su confianza y 
+          su autoestima.
+          </font>
+          </center>
+          </h3>
         </p>
       </div>
       {page >= 2 ? (
