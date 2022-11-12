@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import Modal from "./Modal";
 
-function FormAdoption() {
+function Form({ type }) {
   const { user } = useContext(UserContext);
   const { pet } = useContext(AdoptionPetContext);
   const {
@@ -33,7 +33,6 @@ function FormAdoption() {
     });
     const data = await response.text();
     setAdoptionResponse(data);
-    console.log(data);
 
     if (data === "Adoption saved") {
       emailjs
@@ -121,24 +120,73 @@ function FormAdoption() {
             </div>
           )}
         </div>
-        <div className="col-12">
-          <label htmlFor="inputDireccion" className="form-label">
-            Dirección:
-          </label>
-          <input
-            type="text"
-            className="form-control border-dark"
-            name="inputAddress"
-            id="inputAddress"
-            autoComplete="nope"
-            {...register("inputAddress", { required: true })}
-          />
-          {errors.inputAddress && (
-            <div className="text-danger">
-              <small>Este campo es obligatorio.</small>
-            </div>
-          )}
-        </div>
+        <div className="col-md-6">
+            <label htmlFor="inputState" className="form-label">
+              Departamento:
+            </label>
+            <select
+              className="form-select border-dark"
+              name="inputState"
+              id="inputState"
+              autoComplete="nope"
+              {...register("inputState", { required: true })}
+            >
+              <option value="Amazonas">Amazonas</option>
+              <option value="Antioquia">Antioquia</option>
+              <option value="Arauca">Arauca</option>
+              <option value="Atlántico">Atlántico</option>
+              <option value="Bolívar">Bolívar</option>
+              <option value="Boyacá">Boyacá</option>
+              <option value="Caldas">Caldas</option>
+              <option value="Caquetá">Caquetá</option>
+              <option value="Casanare">Casanare</option>
+              <option value="Cauca">Cauca</option>
+              <option value="Cesar">Cesar</option>
+              <option value="Chocó">Chocó</option>
+              <option value="Córdoba">Córdoba</option>
+              <option value="Cundinamarca">Cundinamarca</option>
+              <option value="Guainía">Guainía</option>
+              <option value="Guaviare">Guaviare</option>
+              <option value="Huila">Huila</option>
+              <option value="La Guajira">La Guajira</option>
+              <option value="Magdalena">Magdalena</option>
+              <option value="Meta">Meta</option>
+              <option value="Nariño">Nariño</option>
+              <option value="Norte de Santander">Norte de Santander</option>
+              <option value="Putumayo">Putumayo</option>
+              <option value="Quindío">Quindío</option>
+              <option value="Risaralda">Risaralda</option>
+              <option value="San Andrés y Providencia">
+                San Andrés y Providencia
+              </option>
+              <option value="Santander">Santander</option>
+              <option value="Sucre">Sucre</option>
+              <option value="Tolima">Tolima</option>
+              <option value="Valle del Cauca">Valle del Cauca</option>
+              <option value="Vaupés">Vaupés</option>
+              <option value="Vichada">Vichada</option>
+            </select>
+          </div>
+        {type === "adoption" && (
+          <div className="col-12">
+            <label htmlFor="inputDireccion" className="form-label">
+              Dirección:
+            </label>
+            <input
+              type="text"
+              className="form-control border-dark"
+              name="inputAddress"
+              id="inputAddress"
+              autoComplete="nope"
+              {...register("inputAddress", { required: true })}
+            />
+            {errors.inputAddress && (
+              <div className="text-danger">
+                <small>Este campo es obligatorio.</small>
+              </div>
+            )}
+          </div>
+        )}
         <div className="col-md-6">
           <label htmlFor="inputCity" className="form-label">
             Ciudad:
@@ -157,53 +205,45 @@ function FormAdoption() {
             </div>
           )}
         </div>
+       
         <div className="col-md-6">
-          <label htmlFor="inputState" className="form-label">
-            Departamento:
+          <label htmlFor="inputCity" className="form-label">
+            Dirección:
           </label>
-          <select
-            className="form-select border-dark"
-            name="inputState"
-            id="inputState"
+          <input
+            type="text"
+            className="form-control border-dark"
+            name="inputCity"
+            id="inputCity"
             autoComplete="nope"
-            {...register("inputState", {required: true})}
-          >
-            <option value="Amazonas">Amazonas</option>
-            <option value="Antioquia">Antioquia</option>
-            <option value="Arauca">Arauca</option>
-            <option value="Atlántico">Atlántico</option>
-            <option value="Bolívar">Bolívar</option>
-            <option value="Boyacá">Boyacá</option>
-            <option value="Caldas">Caldas</option>
-            <option value="Caquetá">Caquetá</option>
-            <option value="Casanare">Casanare</option>
-            <option value="Cauca">Cauca</option>
-            <option value="Cesar">Cesar</option>
-            <option value="Chocó">Chocó</option>
-            <option value="Córdoba">Córdoba</option>
-            <option value="Cundinamarca">Cundinamarca</option>
-            <option value="Guainía">Guainía</option>
-            <option value="Guaviare">Guaviare</option>
-            <option value="Huila">Huila</option>
-            <option value="La Guajira">La Guajira</option>
-            <option value="Magdalena">Magdalena</option>
-            <option value="Meta">Meta</option>
-            <option value="Nariño">Nariño</option>
-            <option value="Norte de Santander">Norte de Santander</option>
-            <option value="Putumayo">Putumayo</option>
-            <option value="Quindío">Quindío</option>
-            <option value="Risaralda">Risaralda</option>
-            <option value="San Andrés y Providencia">
-              San Andrés y Providencia
-            </option>
-            <option value="Santander">Santander</option>
-            <option value="Sucre">Sucre</option>
-            <option value="Tolima">Tolima</option>
-            <option value="Valle del Cauca">Valle del Cauca</option>
-            <option value="Vaupés">Vaupés</option>
-            <option value="Vichada">Vichada</option>
-          </select>
+            {...register("inputCity", { required: true })}
+          />
+          {errors.inputCity && (
+            <div className="text-danger">
+              <small>Este campo es obligatorio.</small>
+            </div>
+          )}
         </div>
+        <div className="col-md-6">
+          <label htmlFor="inputCity" className="form-label">
+            Telefono:
+          </label>
+          <input
+            type="text"
+            className="form-control border-dark"
+            name="inputCity"
+            id="inputCity"
+            autoComplete="nope"
+            {...register("inputCity", { required: true })}
+          />
+          {errors.inputCity && (
+            <div className="text-danger">
+              <small>Este campo es obligatorio.</small>
+            </div>
+          )}
+        </div>
+          
+        
         <div className="col-md-6 text-center">
           <NavLink to={"/adoption"}>
             <button type="button" className="btn btn-success">
@@ -227,10 +267,12 @@ function FormAdoption() {
   );
 }
 
-FormAdoption.prototype = {
+
+
+Form.prototype = {
   pet_name: PropTypes.string.isRequired,
   pet_id: PropTypes.number.isRequired,
   pet_image: PropTypes.string.isRequired,
 };
 
-export default FormAdoption;
+export default Form;

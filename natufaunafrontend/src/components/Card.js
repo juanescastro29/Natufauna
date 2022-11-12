@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import PropTypes from "prop-types";
-import "./Card.css";
+import "./card.css";
 import { AdoptionPetContext } from "../context/AdoptionPetContext";
 
 function Card({
@@ -22,6 +22,7 @@ function Card({
   async function fetchPetData() {
     const response = await fetch(`http://localhost:8081/pet/showPet/${pet_id}`);
     const petData = await response.json();
+    console.log(petData);
     setPet(petData);
   }
 
@@ -71,14 +72,18 @@ function Card({
                 >
                   Adoptar
                 </button>
-              </NavLink>
+               </NavLink>
             )}
             {type === "sponsor" && (
-              <NavLink to={"/sponsorship/form"}>
-                <button className="btn btn-primary my-2" type="button">
+              <NavLink to={"/sponsorship/sponsorform"} state={{ pet_image: pet_image }}>
+                <button
+                  className="btn btn-primary my-2"
+                  type="button"
+                  onClick={fetchPetData}
+                >
                   Apadrinar
                 </button>
-              </NavLink>
+               </NavLink>
             )}
           </>
         ) : (

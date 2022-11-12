@@ -65,6 +65,16 @@ function Sponsorship() {
           </center>
         </h1>
         <p>
+          {" "}
+          <br />
+        </p>
+        <p className="border border-1 border-dark p-3"
+        style={{ textAlign: "justify", background: "black" }}
+        >
+          <font face="New York Font" size="4" color="white">
+          <h3>
+
+          
           El apadrinamiento es un apoyo mensual que puedes hacer de forma
           económica o en especie (comida, guacales, medicamentos, etc) para
           todos nuestros rescatados o para uno en particular. Esta donación
@@ -73,19 +83,19 @@ function Sponsorship() {
           proceso será el hogar de este amiguito por el resto de su vida. Si
           quieres tener una mascota y no puedes, esta es tu oportunidad
           ¡Anímate!
+          </h3>
+          </font>
         </p>
         <Slider />
-        <p> aaaa</p>
-
         <p>
           {" "}
           <br />
         </p>
-        <p
-          className="/n border border-4 border-black p-4 "
-          style={{ textAlign: "justify", background: "grey", width: "1000px", marginLeft:"60px" }}
+        <p className=""
+          
         >
-          <font face="New York Font" size="4" color="green">
+          <font face="New York Font" size="4" color="gray" ><h3>
+            <center>
             {" "}
             Existen muchas personas que aman a los perros y a los gatos, pero
             que no pueden tenerlos en casa.
@@ -100,6 +110,8 @@ function Sponsorship() {
             sostenimiento de un perro o un gato, o asistiendo a sitios donde los
             puedan pasear o cuidar, ante la imposibilidad de tenerlos en su
             casa.
+            </center>
+            </h3>
           </font>
         </p>
       </div>
