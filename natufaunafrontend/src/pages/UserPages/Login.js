@@ -138,7 +138,6 @@ export const Login = () => {
               <button
                 type="button"
                 className="btn btn-success my-3"
-                style={{ background: "green" }}
               >
                 Registrarse
               </button>
@@ -146,7 +145,6 @@ export const Login = () => {
             <button
               type="submit"
               className="btn btn-success my-3 ms-3"
-              style={{ background: "green" }}
             >
               Iniciar sesión
             </button>

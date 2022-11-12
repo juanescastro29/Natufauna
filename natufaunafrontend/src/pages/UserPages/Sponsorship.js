@@ -57,18 +57,13 @@ const adoptionPets = [
 function Sponsorship() {
   return (
     <div className="background">
-      <div className="container p-2">
+      <div className="container p-4">
         <h1 className="text text-dark">
-          {" "}
           <center>
             <b>APADRINAMIENTO </b>
           </center>
         </h1>
-        <p>
-          {" "}
-          <br />
-        </p>
-        <p className="border border-1 border-dark p-3"
+        <p className="border border-1 border-dark p-3 m-4"
         style={{ textAlign: "justify", background: "black" }}
         >
           <font face="New York Font" size="4" color="white">

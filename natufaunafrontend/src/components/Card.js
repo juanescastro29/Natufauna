@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import PropTypes from "prop-types";
-import "./card.css";
+import "./Card.css";
 import { AdoptionPetContext } from "../context/AdoptionPetContext";
 
 function Card({
@@ -68,29 +68,36 @@ function Card({
                 <button
                   className="btn btn-success my-2"
                   type="button"
-                  onClick={() => (fetchPetData())}
+                  onClick={() => fetchPetData()}
                 >
                   Adoptar
                 </button>
-               </NavLink>
+              </NavLink>
             )}
             {type === "sponsor" && (
-              <NavLink to={"/sponsorship/sponsorform"} state={{ pet_image: pet_image }}>
+              <NavLink
+                to={"/sponsorship/sponsorform"}
+                state={{ pet_image: pet_image }}
+              >
                 <button
-                  className="btn btn-primary my-2"
+                  className="btn btn-success my-2"
                   type="button"
                   onClick={fetchPetData}
                 >
                   Apadrinar
                 </button>
-               </NavLink>
+              </NavLink>
             )}
           </>
         ) : (
           <>
             {type === "adoption" && (
               <NavLink to={"/login"}>
-                <button className="btn btn-success my-2">Iniciar sesión</button>
+                <button
+                  className="btn btn-success my-2"
+                >
+                  Iniciar sesión
+                </button>
               </NavLink>
             )}
             {type === "sponsor" && (
