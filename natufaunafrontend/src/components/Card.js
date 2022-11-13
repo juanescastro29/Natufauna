@@ -52,12 +52,16 @@ function Card({
               <li className="list-group-item text-secondary bg-transparent">
                 Tamaño: {pet_size}
               </li>
-              <li className="list-group-item text-secondary bg-transparent">
-                Color: {pet_color}
-              </li>
-              <li className="list-group-item text-secondary bg-transparent">
-                Raza: {pet_race}
-              </li>
+              {type === "adoption" && (
+                <>
+                  <li className="list-group-item text-secondary bg-transparent">
+                    Color: {pet_color}
+                  </li>
+                  <li className="list-group-item text-secondary bg-transparent">
+                    Raza: {pet_race}
+                  </li>
+                </>
+              )}
             </ul>
           </>
         )}
@@ -93,11 +97,7 @@ function Card({
           <>
             {type === "adoption" && (
               <NavLink to={"/login"}>
-                <button
-                  className="btn btn-success my-2"
-                >
-                  Iniciar sesión
-                </button>
+                <button className="btn btn-success my-2">Iniciar sesión</button>
               </NavLink>
             )}
             {type === "sponsor" && (

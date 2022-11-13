@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ModalConfirm from "./ModalConfirm";
 import ModalForm from "./ModalForm";
 
 const Table = ({ data, dataType }) => {
@@ -56,6 +57,7 @@ const Table = ({ data, dataType }) => {
                 <th scope="col">Id Apadrinamiento</th>
                 <th scope="col">Id Mascota</th>
                 <th scope="col">Id Usuario</th>
+                <th scope="col">Estado</th>
                 <th scope="col"></th>
               </tr>
             </>
@@ -135,13 +137,29 @@ const Table = ({ data, dataType }) => {
           )}
           {dataType === "sponsorships" && (
             <>
-              {data.map(({ sponsorship_id, user, pet }) => (
+              {data.map(({ sponsorship_id, user, pet, status }) => (
                 <tr key={sponsorship_id}>
                   <th scope="row">{sponsorship_id}</th>
                   <td>{pet.pet_id}</td>
                   <td>{user.user_id}</td>
-                  <td>
-                    <button type="button">show data</button>
+                  <td>{status}</td>
+                  <td align="center">
+                    {status === "Activo" && (
+                      <>
+                        <button
+                          type="button"
+                          className="border-0 bg-transparent"
+                          data-bs-toggle="modal"
+                          data-bs-target="#confirmModal"
+                        >
+                          <i
+                            className="bi bi-trash"
+                            style={{ fontSize: 20, color: "green" }}
+                          ></i>
+                        </button>
+                        <ModalConfirm type={"sponsor"} id={sponsorship_id} />
+                      </>
+                    )}
                   </td>
                 </tr>
               ))}

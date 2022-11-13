@@ -5,8 +5,11 @@ import com.uptc.natufaunabackend.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -103,7 +106,7 @@ public class PetControl {
         int startLimit = (6*page)-6;
 
         for (int i = 0; i < pets.size(); i++) {
-            if (pets.get(i).getAdoption_status()) {
+            if (pets.get(i).getSponsorship_status()) {
                 sponsorships.add(pets.get(i));
             }
         }
@@ -145,4 +148,5 @@ public class PetControl {
             return new ResponseEntity<String>("Pet not update", HttpStatus.NOT_FOUND);
         }
     }
+
 }

@@ -8,7 +8,7 @@ const AdminSponsorship = () => {
 
   useEffect(() => {
     async function fetchSponsorships() {
-      const response = await fetch(`http://localhost:8081/sponsorship/${page}`);
+      const response = await fetch(`http://localhost:8081/sponsorship/showSponsorships/${page}`);
       const data = await response.json();
       setSponsorshipData(data);
     }

@@ -33,12 +33,24 @@ public class SponsorshipControl {
     public String addSponsorship(@RequestBody Map<String, Integer> sponsorshipData) {
         User user = userService.getUser(sponsorshipData.get("user_id"));
         Pet pet = petService.getPet(sponsorshipData.get("pet_id"));
+        int sponsorships = 0;
+        for (int i = 0; i < user.getAdoptions().size(); i++) {
+            if (user.getAdoptions().get(i).getStatus().equals("Activo")) {
+                sponsorships = sponsorships + 1;
+            }
+        }
+
+        if (sponsorships == 5) {
+            return "Exceeds the number of sponsorships";
+        }
+
         Sponsorship sponsorship = new Sponsorship();
         sponsorship.setUser(user);
         sponsorship.setPet(pet);
         pet.setSponsorship_status(false);
         sponsorshipService.saveSponsorship(sponsorship);
         return "Sponsorship saved";
+
     }
 
     @GetMapping("/showSponsorships")
@@ -66,7 +78,6 @@ public class SponsorshipControl {
                 i = sponsorshipService.getSponsorships().size();
             }
         }
-
         return sponsorshipsLimited;
     }
 
@@ -84,6 +95,9 @@ public class SponsorshipControl {
     public ResponseEntity<String> deleteSponsorship(@PathVariable int sponsorship_id) {
         try {
             Sponsorship sponsorship = sponsorshipService.getSponsorship(sponsorship_id);
+            Pet pet = sponsorship.getPet();
+            pet.setSponsorship_status(true);
+            petService.savePet(pet);
             sponsorshipService.deleteSponsorship(sponsorship_id);
             return new ResponseEntity<String>("Sponsorship deleted", HttpStatus.OK);
         } catch (NoSuchElementException e) {

@@ -10,10 +10,20 @@ const FormPet = () => {
   } = useForm();
 
   async function registPet(dataForm) {
-    const response = await fetch("http://localhost:8081/pet/registerPet", {
+    const image = new FormData();
+    image.append("file", dataForm.pet_image[0]);
+    image.append("upload_preset", "natufauna");
+    const responseCloud = await fetch("https://api.cloudinary.com/v1_1/dbhl95fyu/image/upload", {
+      method: "POST",
+      body: image,
+    })
+    const imageUrl = await responseCloud.json();
+    dataForm.pet_image = imageUrl.secure_url;
+    console.log(dataForm);
+    const response = await fetch(`http://localhost:8081/pet/registerPet`, {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        "Content-type":"application/json"
       },
       body: JSON.stringify(dataForm),
     });
@@ -21,7 +31,7 @@ const FormPet = () => {
     const data = await response.text();
     if (data !== "Pet saved") {
       setErrorResponse(data);
-    }else {
+    } else {
       window.location.reload();
     }
   }
@@ -44,7 +54,7 @@ const FormPet = () => {
           id="pet_name"
           {...register("pet_name", {
             required: true,
-            pattern: /[A-Za-z]/
+            pattern: /[A-Za-z]/,
           })}
         />
         {errors.pet_name?.type === "required" && (
@@ -54,7 +64,7 @@ const FormPet = () => {
         )}
         {errors.pet_name?.type === "pattern" && (
           <div className="text-danger">
-            <small>No se permiten numeros ni caracteres especiales.</small>
+            <small>No se permiten números ni caracteres especiales.</small>
           </div>
         )}
       </div>
@@ -108,11 +118,16 @@ const FormPet = () => {
           name="pet_race"
           id="pet_race"
           autoComplete="nope"
-          {...register("pet_race", { required: true })}
+          {...register("pet_race", { required: true, pattern: /[A-Za-z]/ })}
         />
         {errors.pet_race?.type === "required" && (
           <div className="text-danger">
             <small>Este campo es requerido.</small>
+          </div>
+        )}
+        {errors.pet_race?.type === "pattern" && (
+          <div className="text-danger">
+            <small>No se permiten números ni caracteres especiales.</small>
           </div>
         )}
       </div>
@@ -131,6 +146,23 @@ const FormPet = () => {
           <option value="Mediano">Mediano</option>
           <option value="Grande">Grande</option>
         </select>
+      </div>
+      <div className="col-6 p-2">
+        <label htmlFor="formFile" className="form-label fw-bolder">
+          Imagen:
+        </label>
+        <input
+          className="form-control border-dark"
+          type="file"
+          name="pet_image"
+          id="pet_image"
+          {...register("pet_image", { required: true })}
+        ></input>
+        {errors.pet_image?.type === "required" && (
+          <div className="text-danger">
+            <small>Se debe seleccionar una imagen de la mascota.</small>
+          </div>
+        )}
       </div>
       <div className="col-12 p-2">
         <label htmlFor="pet_history" className="form-label fw-bolder">

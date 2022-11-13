@@ -1,6 +1,7 @@
 package com.uptc.natufaunabackend.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "sponsorships")
@@ -15,7 +16,13 @@ public class Sponsorship {
     @OneToOne
     @JoinColumn(name = "pet_id", referencedColumnName = "pet_id", nullable = false)
     private Pet pet;
+    @Column(name = "status")
+    private String status;
 
+    @PrePersist
+    public void prePersist() {
+        this.status = "Activo";
+    }
     public Sponsorship() {
     }
 
@@ -41,5 +48,13 @@ public class Sponsorship {
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

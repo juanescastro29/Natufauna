@@ -13,7 +13,6 @@ const AdminPets = () => {
       );
       const data = await response.json();
       setPets(data);
-      console.log(data);
     }
     fetchAdoptions();
   }, [page]);

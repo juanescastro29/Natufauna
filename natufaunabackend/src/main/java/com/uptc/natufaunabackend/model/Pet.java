@@ -17,7 +17,7 @@ public class Pet {
     private int pet_id;
     @Column(name = "pet_name", nullable = false)
     private String pet_name;
-    @Transient
+    @Column(name = "pet_image", nullable = false)
     private String pet_image;
     @Column(name = "pet_history", nullable = false)
     private String pet_history;
@@ -46,7 +46,6 @@ public class Pet {
     public void prePersist() {
         this.adoption_status = true;
         this.sponsorship_status = true;
-        this.pet_image = "";
     }
 
     public Pet() {

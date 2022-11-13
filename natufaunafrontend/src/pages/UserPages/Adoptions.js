@@ -13,17 +13,7 @@ function Adoptions() {
         `http://localhost:8081/pet/showPets/adoptions/${page}`
       );
       const data = await response.json();
-      const responseImages = await fetch(
-        `https://api.thedogapi.com/v1/images/search?size=full&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=1&limit=${data.length}`
-      );
-      const dataImages = await responseImages.json();
-      if (data.length !== 0) {
-        for (let i = 0; i < dataImages.length; i++) {
-          data[i].pet_image = dataImages[i].url;
-        }
-      }
       setAdoptionPets(data);
-      console.log(data);
     }
 
     fetchData();

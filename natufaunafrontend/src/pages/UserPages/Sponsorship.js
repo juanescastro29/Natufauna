@@ -1,60 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cards from "../../components/Cards";
-import ap1 from "../../assets/ap1.jpg";
-import ap2 from "../../assets/ap2.jpg";
-import ap3 from "../../assets/ap3.jpg";
-import ap4 from "../../assets/ap4.jpg";
-import ap5 from "../../assets/ap5.jpg";
-import ap6 from "../../assets/ap6.jpg";
 import "../Styles.css";
 import Slider from "../../components/Slider";
 
-const adoptionPets = [
-  {
-    pet_id: 1,
-    pet_name: "Lobo",
-    pet_image: ap1,
-    type: "sponsor",
-    text: " ",
-  },
-  {
-    pet_id: 2,
-    pet_name: "Snoopy",
-    pet_image: ap2,
-    type: "sponsor",
-    text: " ",
-  },
-  {
-    pet_id: 3,
-    pet_name: "Milú",
-    pet_image: ap3,
-    type: "sponsor",
-    text: " ",
-  },
-  {
-    pet_id: 4,
-    pet_name: "Marley",
-    pet_image: ap4,
-    type: "sponsor",
-    text: " ",
-  },
-  {
-    pet_id: 5,
-    pet_name: "Bolt",
-    pet_image: ap5,
-    type: "sponsor",
-    text: " ",
-  },
-  {
-    pet_id: 6,
-    pet_name: "Max",
-    pet_image: ap6,
-    type: "sponsor",
-    text: " ",
-  },
-];
-
 function Sponsorship() {
+  const [sponsorshipPets, setSponsorshipPets] = useState([]);
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    async function fetchData() {
+      const response = await fetch(
+        `http://localhost:8081/pet/showPets/sponsorships/${page}`
+      );
+      const data = await response.json();
+      setSponsorshipPets(data);
+    }
+
+    fetchData();
+  }, [page]);
+
   return (
     <div className="background">
       <div className="container p-4">
@@ -108,7 +73,126 @@ function Sponsorship() {
           </font>
         </p>
       </div>
-      <Cards data={adoptionPets} type="sponsor" />
+      {page >= 2 ? (
+        <div className="container">
+          {sponsorshipPets.length === 0 ? (
+            <p className="text-center fs-2 fw-bolder">
+              No hay mascotas disponibles para apadrinar.
+            </p>
+          ) : (
+            <Cards data={sponsorshipPets} type={"sponsor"} />
+          )}
+          <div className="row">
+            <div className="col text-end">
+              <button
+                className="btn border-0 bg-transparent"
+                type="button"
+                onClick={() => setPage(page - 1)}
+              >
+                <i
+                  className="bi bi-caret-left-square"
+                  style={{ fontSize: 35 }}
+                ></i>
+              </button>
+            </div>
+            <div className="col text-center pt-2">
+              <p className="fs-3">{page}</p>
+            </div>
+            <div className="col text-start">
+              {sponsorshipPets.length < 6 ? (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  disabled
+                >
+                  <i
+                    className="bi bi-caret-right-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              ) : (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  onClick={() => setPage(page + 1)}
+                >
+                  <i
+                    className="bi bi-caret-right-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="container">
+          {sponsorshipPets.length === 0 ? (
+            <p className="text-center fs-2 fw-bolder">
+              No hay mascotas disponibles para apadrinar.
+            </p>
+          ) : (
+            <Cards data={sponsorshipPets} type={"sponsor"} />
+          )}
+          <div className="row">
+            <div className="col text-end">
+              {page === 1 ? (
+                <div>
+                  <button
+                    className="btn border-0 bg-transparent"
+                    type="button"
+                    disabled
+                  >
+                    <i
+                      className="bi bi-caret-left-square"
+                      style={{ fontSize: 35 }}
+                    ></i>
+                  </button>
+                </div>
+              ) : (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  onClick={() => setPage(page - 1)}
+                >
+                  <i
+                    className="bi bi-caret-left-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              )}
+            </div>
+            <div className="col text-center pt-2">
+              <p className="fs-3">{page}</p>
+            </div>
+            <div className="col text-start">
+              {sponsorshipPets.length < 6 ? (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  disabled
+                >
+                  <i
+                    className="bi bi-caret-right-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              ) : (
+                <button
+                  className="btn border-0 bg-transparent"
+                  type="button"
+                  onClick={() => setPage(page + 1)}
+                >
+                  <i
+                    className="bi bi-caret-right-square"
+                    style={{ fontSize: 35 }}
+                  ></i>
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
