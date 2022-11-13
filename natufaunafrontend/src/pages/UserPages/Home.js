@@ -32,7 +32,7 @@ export default function Home() {
         `https://api.thedogapi.com/v1/images/search?size=full&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=${histories.length}`
         );
       const data = await response.json();
-      for (let i = 0; i < data.length; i++) {
+      for (let i = 0; i < histories.length; i++) {
         histories[i].pet_image = data[i].url;
       }
       setNewHistories(histories);

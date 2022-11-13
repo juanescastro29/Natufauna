@@ -4,13 +4,20 @@ import ModalForm from "./ModalForm";
 
 const Table = ({ data, dataType }) => {
   const [adoptionEdit, setAdoptionEdit] = useState({});
+  const [petEdit, setPetEdit] = useState({});
 
-  function seachAdoption(adoption_id) {
+  function searchAdoption(adoption_id) {
     const adoptionData = data.find((adoption) => {
       return adoption.adoption_id === adoption_id;
     });
-    console.log(adoptionData.status);
     setAdoptionEdit(adoptionData);
+  }
+
+  function searchPet(pet_id) {
+    const petData = data.find((pet) => {
+      return pet.pet_id === pet_id;
+    });
+    setPetEdit(petData);
   }
 
   return (
@@ -86,6 +93,7 @@ const Table = ({ data, dataType }) => {
                 <th scope="col">Raza</th>
                 <th scope="col">Tamaño</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
               </tr>
             </>
           )}
@@ -119,14 +127,14 @@ const Table = ({ data, dataType }) => {
                             className="border-0 bg-transparent"
                             data-bs-toggle="modal"
                             data-bs-target="#editModal"
-                            onClick={() => seachAdoption(adoption_id)}
+                            onClick={() => searchAdoption(adoption_id)}
                           >
                             <i
                               className="bi bi-pencil-square"
                               style={{ fontSize: 20, color: "green" }}
                             ></i>
                           </button>
-                          <ModalForm data={adoptionEdit} />
+                          <ModalForm data={adoptionEdit} type={"adoption"} />
                         </>
                       )}
                     </td>
@@ -216,12 +224,41 @@ const Table = ({ data, dataType }) => {
                     <td>{pet_race}</td>
                     <td>{pet_size}</td>
                     <td>
-                      <button type="button" className="border-0 bg-transparent">
-                        <i
-                          className="bi bi-pencil-square"
-                          style={{ fontSize: 20, color: "green" }}
-                        ></i>
-                      </button>
+                      {adoption_status && sponsorship_status && (
+                        <>
+                        <button
+                          type="button"
+                          className="border-0 bg-transparent"
+                          data-bs-toggle="modal"
+                          data-bs-target="#editModal"
+                          onClick={() => searchPet(pet_id)}
+                        >
+                          <i
+                            className="bi bi-pencil-square"
+                            style={{ fontSize: 20, color: "green" }}
+                          ></i>
+                        </button>
+                        <ModalForm data={petEdit} type={"pet"} />
+                      </>
+                      )}
+                    </td>
+                    <td>
+                      {adoption_status && sponsorship_status && (
+                        <>
+                          <button
+                            type="button"
+                            className="border-0 bg-transparent"
+                            data-bs-toggle="modal"
+                            data-bs-target="#confirmModal"
+                          >
+                            <i
+                              className="bi bi-trash"
+                              style={{ fontSize: 20, color: "green" }}
+                            ></i>
+                          </button>
+                          <ModalConfirm type={"pet"} id={pet_id} />
+                        </>
+                      )}
                     </td>
                   </tr>
                 )

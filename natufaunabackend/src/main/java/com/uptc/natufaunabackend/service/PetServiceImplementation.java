@@ -27,4 +27,9 @@ public class PetServiceImplementation implements PetService {
     public Pet getPet(Integer id) {
         return petRepository.findById(id).get();
     }
+
+    @Override
+    public void deleteSPet(Integer id) {
+        petRepository.deleteById(id);
+    }
 }

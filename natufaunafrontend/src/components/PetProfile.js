@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AdoptionPetContext } from "../context/AdoptionPetContext";
 
-function PetProfile({ pet_image }) {
+function PetProfile() {
   const { pet } = useContext(AdoptionPetContext);
 
   return (
@@ -12,7 +12,7 @@ function PetProfile({ pet_image }) {
       <div className="container text-center">
         <img
           className="img-pet-profile border border-1 border-dark rounded"
-          src={pet_image}
+          src={pet.pet_image}
           alt="pet profile"
           width={300}
         />

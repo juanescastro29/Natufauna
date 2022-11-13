@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import org.aspectj.bridge.IMessage;
 import org.springframework.lang.Nullable;
+import org.w3c.dom.stylesheets.LinkStyle;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "pets")
@@ -35,9 +37,9 @@ public class Pet {
     private Boolean sponsorship_status;
 
 
-    @OneToOne(mappedBy = "pet")
+    @OneToMany(mappedBy = "pet")
     @JsonIgnore
-    private Adoption adoption;
+    private List<Adoption> adoption;
     @OneToOne(mappedBy = "pet")
     @JsonIgnore
     private Sponsorship sponsorship;
@@ -131,11 +133,11 @@ public class Pet {
         this.sponsorship_status = sponsorship_status;
     }
 
-    public Adoption getAdoption() {
+    public List<Adoption> getAdoption() {
         return adoption;
     }
 
-    public void setAdoption(Adoption adoption) {
+    public void setAdoption(List<Adoption> adoption) {
         this.adoption = adoption;
     }
 

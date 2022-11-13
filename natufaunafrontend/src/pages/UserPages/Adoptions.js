@@ -27,8 +27,7 @@ function Adoptions() {
             <b>ADOPCIONES</b>
           </center>
         </h1>
-        <p className="border border-1 border-dark bg-white p-3 m-4">
-          <h3 style={{textAlign: "justify"}}>
+        <p className="border border-1 border-dark bg-white p-3 mt-4 fs-4" style={{textAlign: "justify"}}>
             <font face="New York Font">
               En la mayoría de los casos, adoptar significa darle una segunda
               oportunidad a un animal que ha sufrido un proceso de abandono, y
@@ -36,7 +35,6 @@ function Adoptions() {
               estabilidad, los cuidados y el cariño que necesita va a ayudarlo a
               que recupere su confianza y su autoestima.
             </font>
-          </h3>
         </p>
       </div>
       {page >= 2 ? (

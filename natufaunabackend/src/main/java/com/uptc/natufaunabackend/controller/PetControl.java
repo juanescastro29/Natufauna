@@ -1,6 +1,7 @@
 package com.uptc.natufaunabackend.controller;
 
 import com.uptc.natufaunabackend.model.Pet;
+import com.uptc.natufaunabackend.model.Sponsorship;
 import com.uptc.natufaunabackend.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 @CrossOrigin
@@ -134,18 +136,30 @@ public class PetControl {
     }
 
     @PutMapping("/updatePet/{pet_id}")
-    public ResponseEntity<String> updatePet(@RequestBody Pet pet, @PathVariable Integer pet_id) {
+    public ResponseEntity<String> updatePet(@RequestBody Map<String, String> petUpdateDate, @PathVariable Integer pet_id) {
         try {
             Pet petFound = petService.getPet(pet_id);
-            petFound.setPet_name(pet.getPet_name());
-            petFound.setPet_size(pet.getPet_size());
-            petFound.setPet_history(pet.getPet_history());
-            petFound.setAdoption_status(pet.getAdoption_status());
-            petFound.setSponsorship_status(pet.getSponsorship_status());
+            if (petUpdateDate.get("pet_name") != "") {
+                petFound.setPet_name(petUpdateDate.get("pet_name"));
+            }
+            
+            if (petUpdateDate.get("pet_image") != "") {
+                petFound.setPet_image(petUpdateDate.get("pet_image"));
+            }
             petService.savePet(petFound);
             return new ResponseEntity<String>("Pet update successfully", HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<String>("Pet not update", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/deletePet/{pet_id}")
+    public ResponseEntity<String> deleteSponsorship(@PathVariable int pet_id) {
+        try {
+            petService.deleteSPet(pet_id);
+            return new ResponseEntity<String>("Pet deleted", HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<String>("No pet found", HttpStatus.NOT_FOUND);
         }
     }
 

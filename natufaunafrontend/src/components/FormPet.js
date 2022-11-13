@@ -19,7 +19,6 @@ const FormPet = () => {
     })
     const imageUrl = await responseCloud.json();
     dataForm.pet_image = imageUrl.secure_url;
-    console.log(dataForm);
     const response = await fetch(`http://localhost:8081/pet/registerPet`, {
       method: "POST",
       headers: {

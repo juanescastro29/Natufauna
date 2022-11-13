@@ -9,5 +9,6 @@ public interface PetService {
     public void savePet(Pet pet);
     public List<Pet> getPets();
     public Pet getPet(Integer id);
+    public void deleteSPet(Integer id);
 
 }

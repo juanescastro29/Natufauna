@@ -22,7 +22,6 @@ function Card({
   async function fetchPetData() {
     const response = await fetch(`http://localhost:8081/pet/showPet/${pet_id}`);
     const petData = await response.json();
-    console.log(petData);
     setPet(petData);
   }
 
@@ -68,7 +67,7 @@ function Card({
         {session ? (
           <>
             {type === "adoption" && (
-              <NavLink to={"/adoption/form"} state={{ pet_image: pet_image }}>
+              <NavLink to={"/adoption/form"} state={{ type: type }}>
                 <button
                   className="btn btn-success my-2"
                   type="button"
@@ -79,10 +78,7 @@ function Card({
               </NavLink>
             )}
             {type === "sponsor" && (
-              <NavLink
-                to={"/sponsorship/sponsorform"}
-                state={{ pet_image: pet_image }}
-              >
+              <NavLink to={"/sponsorship/sponsorform"}>
                 <button
                   className="btn btn-success my-2"
                   type="button"
