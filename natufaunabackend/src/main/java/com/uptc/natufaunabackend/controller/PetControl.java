@@ -142,7 +142,7 @@ public class PetControl {
             if (petUpdateDate.get("pet_name") != "") {
                 petFound.setPet_name(petUpdateDate.get("pet_name"));
             }
-            
+
             if (petUpdateDate.get("pet_image") != "") {
                 petFound.setPet_image(petUpdateDate.get("pet_image"));
             }
