@@ -15,10 +15,10 @@ const taskTableRows =(doneValue) =>{
 
     return(
 
-<table>
+<table className="table table-light table striped table-bordered border-secundary">
         <thead>
-          <tr>
-            <th>Task</th>
+          <tr className="table-success">
+            <th>TAREAS</th>
           </tr>
         </thead>
         <tbody>

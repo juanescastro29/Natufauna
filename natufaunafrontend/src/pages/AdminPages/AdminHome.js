@@ -31,9 +31,9 @@ const AdminHome = () => {
 
   return (
     <div className="background">
-      AdminHome
-      <p> hola</p>
+      
       <br />
+      <div className="container col-md-5 offset-md-4">
       <TaskCreator createTask={createTask} />
       <TaskTable tasks={taskItems} setTask={setTask} />
       <Visibility
@@ -47,7 +47,7 @@ const AdminHome = () => {
           showCompleted={showCompleted}
         />
       )}
-      <p>holis</p>
+    </div>
     </div>
   );
 };
