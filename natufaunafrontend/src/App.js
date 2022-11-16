@@ -21,6 +21,10 @@ import AdoptionPetProvider from "./context/AdoptionPetContext";
 import PrivateRouteAdmin from "./components/PrivateRouteAdmin";
 import PrivateRouteUser from "./components/PrivateRouteUser";
 import AdminProvider from "./context/AdminContext";
+import User from "./pages/UserPages/User"
+import MyAdoptions from "./pages/UserPages/MyAdoptions"
+import MySponsorships from "./pages/UserPages/MySponsorships"
+import MyDonations from "./pages/UserPages/MyDonations"
 
 function App() {
   return (
@@ -52,6 +56,38 @@ function App() {
               />
               <Route path="/donation" element={<Donation />} />
               <Route path="/login" element={<Login />} />
+              <Route
+                path="/profile"
+                element={
+                  <PrivateRouteUser>
+                    <User />
+                  </PrivateRouteUser>
+                }
+              />
+              <Route
+                path="/myAdoptions"
+                element={
+                  <PrivateRouteUser>
+                    <MyAdoptions />
+                  </PrivateRouteUser>
+                }
+              />
+              <Route
+                path="/mySponsorships"
+                element={
+                  <PrivateRouteUser>
+                    <MySponsorships />
+                  </PrivateRouteUser>
+                }
+              />
+              <Route
+                path="/myDonations"
+                element={
+                  <PrivateRouteUser>
+                    <MyDonations />
+                  </PrivateRouteUser>
+                }
+              />
               <Route path="/register" element={<Register />} />
               <Route
                 path="/admin/"

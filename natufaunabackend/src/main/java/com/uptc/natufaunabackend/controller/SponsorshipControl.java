@@ -58,12 +58,6 @@ public class SponsorshipControl {
         return sponsorshipService.getSponsorships();
     }
 
-    @GetMapping("/showSponsorships/user/{user_id}")
-    public List<Sponsorship> getUserSponsorship(@PathVariable int user_id) {
-        User user = userService.getUser(user_id);
-        return user.getSponsorships();
-    }
-
     @GetMapping("/showSponsorships/{page}")
     public List<Sponsorship> getAdoptionsPage(@PathVariable Integer page) {
         ArrayList<Sponsorship> sponsorshipsLimited = new ArrayList<>();
@@ -73,6 +67,25 @@ public class SponsorshipControl {
         for (int i = startLimit; i < sponsorshipService.getSponsorships().size(); i++) {
             if (elements <= 5) {
                 sponsorshipsLimited.add(sponsorshipService.getSponsorships().get(i));
+                elements = elements + 1;
+            } else {
+                i = sponsorshipService.getSponsorships().size();
+            }
+        }
+        return sponsorshipsLimited;
+    }
+
+    @GetMapping("/showSponsorships/{page}/{user_id}")
+    public List<Sponsorship> getAdoptionsPageUser(@PathVariable Integer page, @PathVariable Integer user_id) {
+        ArrayList<Sponsorship> sponsorshipsLimited = new ArrayList<>();
+        List<Sponsorship> sponsorshipUser = new ArrayList<>();
+        sponsorshipUser = userService.getUser(user_id).getSponsorships();
+        int elements = 0;
+        int startLimit = (6*page)-6;
+
+        for (int i = startLimit; i < sponsorshipUser.size(); i++) {
+            if (elements <= 5) {
+                sponsorshipsLimited.add(sponsorshipUser.get(i));
                 elements = elements + 1;
             } else {
                 i = sponsorshipService.getSponsorships().size();

@@ -92,13 +92,30 @@ public class UserControl {
     }
 
     @PutMapping("/updateUser/{user_id}")
-    public ResponseEntity<String> updateUser(@RequestBody User user, @PathVariable Integer user_id) {
+    public ResponseEntity<Object> updateUser(@RequestBody User user, @PathVariable Integer user_id) {
         try {
+            Map<String, Object> response = new HashMap<>();
             User userFound = userService.getUser(user_id);
-            userService.saveUser(user);
-            return new ResponseEntity<String>("User update successfully", HttpStatus.OK);
+            if (user.getUser_first_name() != null && !user.getUser_first_name().equals("")) {
+                userFound.setUser_first_name(user.getUser_first_name());
+            }
+            if (user.getUser_last_name() != null && !user.getUser_last_name().equals("")) {
+                userFound.setUser_last_name(user.getUser_last_name());
+            }
+            if (user.getPassword() != null && !user.getPassword().equals("")) {
+                userFound.setPassword(user.getPassword());
+            }
+            if (user.getEmail() != null && !user.getEmail().equals("")) {
+                userFound.setEmail(user.getEmail());
+            }
+            userService.saveUser(userFound);
+            response.put("message", "User update successfully");
+            response.put("user", userFound);
+            return new ResponseEntity<Object>(response, HttpStatus.OK);
         }catch (NoSuchElementException e) {
-            return new ResponseEntity<String>("Not user found", HttpStatus.NOT_FOUND);
+            Map<String, Object> response = new HashMap<>();
+            response.put("message", "User not found");
+            return new ResponseEntity<Object>(response, HttpStatus.NOT_FOUND);
         }
     }
 }

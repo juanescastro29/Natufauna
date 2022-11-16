@@ -236,7 +236,7 @@ function ModalForm({ data, type }) {
         className="modal fade"
         id="confirmarModal"
         aria-hidden="true"
-        aria-labelledby="confirmarModalModalLabel"
+        aria-labelledby="confirmarModalLabel"
         tabIndex="-1"
       >
         <div className="modal-dialog modal-dialog-centered">

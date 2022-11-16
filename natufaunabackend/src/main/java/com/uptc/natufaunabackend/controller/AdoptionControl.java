@@ -75,11 +75,29 @@ public class AdoptionControl {
         return adoptionsLimited;
     }
 
-    @GetMapping("/showAdoptions/user/{user_id}")
-    public List<Adoption> getAdoptionsUser(@PathVariable int user_id) {
-        User user = userService.getUser(user_id);
-        return user.getAdoptions();
+    @GetMapping("/showAdoptions/{page}/{user_id}")
+    public List<Adoption> getAdoptionsPageUser(@PathVariable Integer page, @PathVariable Integer user_id) {
+        ArrayList<Adoption> adoptionsLimited = new ArrayList<>();
+        List<Adoption> adoptionUser = new ArrayList<>();
+        adoptionUser = userService.getUser(user_id).getAdoptions();
+        int elements = 0;
+        int startLimit = 0;
+        if (page > 0) {
+            startLimit = (6*page)-6;
+        }
+
+        for (int i = startLimit; i < adoptionUser.size(); i++) {
+            if (elements <= 5) {
+                adoptionsLimited.add(adoptionUser.get(i));
+                elements = elements + 1;
+            } else {
+                i = adoptionService.getAdoptions().size();
+            }
+        }
+
+        return adoptionsLimited;
     }
+
 
     @GetMapping("/showAdoption/{id}")
     public ResponseEntity<Adoption> getAdoption(@PathVariable Integer donation_id) {

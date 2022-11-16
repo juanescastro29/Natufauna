@@ -223,7 +223,7 @@ const Table = ({ data, dataType }) => {
                     <td>{pet_history}</td>
                     <td>{pet_race}</td>
                     <td>{pet_size}</td>
-                    <td>
+                    <td align="center">
                       {adoption_status && sponsorship_status && (
                         <>
                         <button
@@ -242,7 +242,7 @@ const Table = ({ data, dataType }) => {
                       </>
                       )}
                     </td>
-                    <td>
+                    <td align="center">
                       {adoption_status && sponsorship_status && (
                         <>
                           <button
